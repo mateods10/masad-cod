@@ -1,0 +1,1 @@
+ALTER TABLE "AppConfig" ADD COLUMN "formEnabled" BOOLEAN NOT NULL DEFAULT true;

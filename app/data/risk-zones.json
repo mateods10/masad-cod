@@ -1,0 +1,2222 @@
+[
+  {
+    "province": "AZUAY",
+    "destination": "CUENCA",
+    "sector": "Sector Turi",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "AZUAY",
+    "destination": "CUENCA",
+    "sector": "El vecino",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "AZUAY",
+    "destination": "CUENCA",
+    "sector": "Feria Libre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "AZUAY",
+    "destination": "CUENCA",
+    "sector": "Mercado 9 de Octubre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "AZUAY",
+    "destination": "CUENCA",
+    "sector": "Trigales",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "AZUAY",
+    "destination": "CUENCA",
+    "sector": "Barrial Blanco",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "RIOBAMBA",
+    "sector": "Sector 24 de Mayo bypass",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "RIOBAMBA",
+    "sector": "Sector Camilo Ponce",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "RIOBAMBA",
+    "sector": "Sector La Primavera",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "RIOBAMBA",
+    "sector": "Sector Media Luna",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "RIOBAMBA",
+    "sector": "Sector 9 de Octubre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "RIOBAMBA",
+    "sector": "Sector Juan Félix",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector 20 de Noviembre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Guacharaca",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Las Américas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Aire Libre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Arenal",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Bellavista (norte)",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Bellavista (sur)",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Tercer Piso",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Cananga",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Casa Bonita",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector San Jorge",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Tiwintza",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Gatazo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Santa Cruz",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Las Orquideas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector El Coral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Isla Piedad",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector La Primavera",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Vista al Mar",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Barrio Lindo (alto)",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "ESMERALDAS",
+    "sector": "Sector Boca de Lobo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Camal",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "La7",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "San Jose",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Carbonera",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Cementerio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Las delicias",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Ciudadela",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "3 de julio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Kennedy",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Sona franca",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Nuevo san Lorenzo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Palestina",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Nuevo pedregal",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Luis Ceballos",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Midubi",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Las María",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "La Rampa",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Barrio rico",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Klm 5",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "KLm 9",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "SAN LORENZO",
+    "sector": "Santa Isabel",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Reinaldo Rodríguez - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Nueva Prosperina - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Monte Sinai - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Trinidad de Dios - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. María Paidal - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Horizontes del Fortín - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Flor de Bastión - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Ciudad Victoria - Vía Daule",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Ciudad de Dios - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Sector La Ladrillera - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Socio Vivienda 1",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Socio Vivienda 2",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Socio Vivienda 3",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "San Ignacio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Edner Parrales",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Balerio Estacio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Sergio Toral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Voluntad de dios",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. San Francisco",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Bastion Popular",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Floresta 1 -",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Isla Trinitaria",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Las Malvinas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Los Esteros",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Velasco Ibarra",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Causa Proletaria",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Proletarios sin Tierra",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Cristal - Guasmo Sur",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Batalla de Tarqui - Guasmo Sur",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Playita del Guasmo Sur",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Pablo Neruda -Guasmo Sur",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Las acacias",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Las esclusas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Guangala",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Tulipanes",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Santa monica",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Los almedros",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Socio Vivienda 1 - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Socio Vivienda 2 - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "San Ignacio - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Edner Parrales - Vía Perimetral",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. San Feancisco 1- Vía Daule",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. San Feancisco 2- Vía Daule",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. San Feancisco 3- Vía Daule",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Puerto Lisa - Guasmo Sur",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. El Condor - Guasmo Sur",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "Coop. Tarqui - Guasmo Sur",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "GUAYAQUIL",
+    "sector": "La Germania via a Daule",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "La Herradura",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "El Arbolito",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "5 de Junio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "Cerro las Cabras",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "Valparaíso",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "Cerro Redondo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "El Eden",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "Peñón del Rio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "Duran City",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "La 40",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DURAN",
+    "sector": "La 28",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DAULE",
+    "sector": "Colimes",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DAULE",
+    "sector": "Salitre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DAULE",
+    "sector": "Lomas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DAULE",
+    "sector": "Isidro Ayora",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DAULE",
+    "sector": "Pedro Carbo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "DAULE",
+    "sector": "Palestina",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "Casa para todos",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "Batan",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "Kevin Torres",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "acuarelas del rio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "brisas del Rio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "Las Mercedes",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "Calicando",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "Villanueva",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "Las cañas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "La Inca",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "NARANJAL",
+    "sector": "km 11. Km 15, km 19",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "sector Ciudadela Acuña",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "sector Ciudadela San Emilio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "sectorLos garabatos.",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "sector Américas 3 invasiones.",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "sector Las Pozas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "sector Adelca manabí chico",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "sector manabí chico",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "Sector El camal.",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "Barrio chino",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "Barrio Los chamos",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "Barrio los tamarindos",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "Sector completo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "BOLICHE",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "KILOMETRO 26",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "MILAGRO",
+    "sector": "VIRGEN DE FATIMA",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "IBARRA",
+    "sector": "Sector Alpachaca",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "IBARRA",
+    "sector": "Sector Piorato",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "IBARRA",
+    "sector": "Sector Azaya",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "IBARRA",
+    "sector": "Sector Vista lago",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "IBARRA",
+    "sector": "Sector Los Soles",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "IBARRA",
+    "sector": "Sector Priorato",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "IBARRA",
+    "sector": "Sector Balcon Ibarreño",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "IBARRA",
+    "sector": "Sector Romerillo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "IBARRA",
+    "sector": "Sector Pugacho",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABAHOYO",
+    "sector": "Sector La Unión",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABAHOYO",
+    "sector": "Sector Clementina",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABAHOYO",
+    "sector": "Sector Jujan",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABAHOYO",
+    "sector": "Sector Muñoz Rubio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABAHOYO",
+    "sector": "Sector Puertas Negras",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABAHOYO",
+    "sector": "Sector Malaria",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABAHOYO",
+    "sector": "Sector El Salto",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABAHOYO",
+    "sector": "Sector La Ventura",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABAHOYO",
+    "sector": "Sector 4 de Mayo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABAHOYO",
+    "sector": "Sector 1ro. Diciembre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "LA UNION",
+    "sector": "Alto Riesgo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "BABA",
+    "sector": "Alto Riesgo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "PUEBLO VIEJO",
+    "sector": "Alto Riesgo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector Playa Grande",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector Galo Plaza",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector Los Chapulpos",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector 20 de Febrero",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector 15 de Noviembre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector La Baldramina",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector La Laguna",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector 17 de Marzo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector La Salud",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector Ciudadela de mi País",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "QUEVEDO",
+    "sector": "Sector Ruta Ecológica",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "VENTANAS",
+    "sector": "Sector Carlos Carriel",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "VENTANAS",
+    "sector": "La nueva Esperanza",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "VENTANAS",
+    "sector": "via a Pto Pechiche",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Sector Guadalupe Larriva",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Armenia",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Los sauces",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Turismo ecologico",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Lucha de los pobres",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Bellavista",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "6 de diciembre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "El moretal",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "6 de enero",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Sector Flor de Oriente",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "LA JOYA DE LOS SACHAS",
+    "sector": "Sector Cañon de los Monos",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "LA JOYA DE LOS SACHAS",
+    "sector": "Sector Pompeya",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "LA JOYA DE LOS SACHAS",
+    "sector": "Sector Rumipamba",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "LA JOYA DE LOS SACHAS",
+    "sector": "Sector Sol de Oriente",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "LA JOYA DE LOS SACHAS",
+    "sector": "Sector Luz de América",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "LA JOYA DE LOS SACHAS",
+    "sector": "Sector Guayasamin",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "LA JOYA DE LOS SACHAS",
+    "sector": "Sector 1ro. De Mayo.",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "Sauces",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "Ursesa",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "Nuevo pilo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "Rosita Nely",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "Voluntad de dios",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "Las catias",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "El coco",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "La barraca",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "Amazonas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "Puerto Bolívar",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "29 de noviembre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "Barrio San Marcos 2",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "Puerto vital",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "MACHALA",
+    "sector": "los ceibo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "EL ORO",
+    "destination": "SANTA ROSA",
+    "sector": "La cuca",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PASTAZA",
+    "destination": "PUYO",
+    "sector": "Sector Barrio la isla",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector San Roque",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector El Tejar",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector La Bota",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector Comité del Pueblo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector La Colmena",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector Toctiuco",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector Jaime Roldós",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector La Ferroviaria",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector La Argélia",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector Nueva Aurora",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector Caupicho",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector Cutuglagua",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector La Libertad",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector Atucucho",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector Nuevo Amanecer",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector La Planada",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector La Comuna (alta)",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector Pisulí",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "QUITO",
+    "sector": "Sector El Placer",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "CAYAMBE",
+    "sector": "Florida 1",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "CAYAMBE",
+    "sector": "Florida 2",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "CAYAMBE",
+    "sector": "Sigsal",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "CAYAMBE",
+    "sector": "Barrio 4 de junio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "CAYAMBE",
+    "sector": "Barrios del soldado",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "CAYAMBE",
+    "sector": "Los Lotes",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Cristo Vive",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Juan Eulógio",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector 2 de Mayo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Che Guevara",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector La Cadena",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Unificados",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector 15 de Septiembre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Proletario",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Santa Martha 4",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Santa Martha 5",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Santa Martha 6",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Paraiso",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Los Girasoles etapa 4",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Los Girasoles etapa 5",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Los Girasoles etapa 6",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Carlos Ruiz Burneo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector La Aurora",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "SANTO DOMINGO DE LOS COLORADOS",
+    "sector": "Sector Ecuador Libre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "LA CONCORDIA",
+    "sector": "Sector 4- 5- 6 nueva concordia",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "LA CONCORDIA",
+    "sector": "La sexta",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "SHUSHUFINDI",
+    "sector": "Sector Orellana",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "SHUSHUFINDI",
+    "sector": "Sector Pedro Angulo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "SIETE DE JULIO",
+    "sector": "Sector Pasochoa",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "SIETE DE JULIO",
+    "sector": "Sector Muchi Grande",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "SIETE DE JULIO",
+    "sector": "Sector Santa Rosa",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "SIETE DE JULIO",
+    "sector": "Sector Parque 12 de Noviembre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "SIETE DE JULIO",
+    "sector": "Sector Plaza Primero de Mayo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "SIETE DE JULIO",
+    "sector": "Sector Plaza Pachano.",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "AMBATO",
+    "sector": "Sector 9 de Octubre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "AMBATO",
+    "sector": "Sector Miraflores",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "AMBATO",
+    "sector": "Sector Ciudadela El Carmén",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "AMBATO",
+    "sector": "La 26",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "AMBATO",
+    "sector": "Letamendi",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "AMBATO",
+    "sector": "Simón bolivar",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "AMBATO",
+    "sector": "Picaihua",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "AMBATO",
+    "sector": "La atarazana",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "AMBATO",
+    "sector": "Sector Manuel Aguirre",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "AMBATO",
+    "sector": "Sector Av. De las Américas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "LA MANA",
+    "sector": "Sector la playita",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "MACAS",
+    "sector": "Barrio La florida",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "MACAS",
+    "sector": "Sector Polideportivo barrio Naranjal",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "BAHIA DE CARAQUEZ",
+    "sector": "Sector Acuarela 1",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "BAHIA DE CARAQUEZ",
+    "sector": "Acuarela 2",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "BAHIA DE CARAQUEZ",
+    "sector": "Sector Los arguellos",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "BAHIA DE CARAQUEZ",
+    "sector": "Sector La cruz",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "BAHIA DE CARAQUEZ",
+    "sector": "Sector Fanca",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "BAHIA DE CARAQUEZ",
+    "sector": "Sector La Paco",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "BAHIA DE CARAQUEZ",
+    "sector": "Sector Marianita",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "BAHIA DE CARAQUEZ",
+    "sector": "Sector Via a punta bellaca",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "BAHIA DE CARAQUEZ",
+    "sector": "Sector El mangle",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "SAN VICENTE",
+    "sector": "Sector Los perales",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "SAN VICENTE",
+    "sector": "Nueva esperanza",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "SAN VICENTE",
+    "sector": "Sector Rancho rojo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "SAN VICENTE",
+    "sector": "Sector Via chone",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "SAN VICENTE",
+    "sector": "Sector Canoa",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "CHONE",
+    "sector": "Sector Calceta",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "CHONE",
+    "sector": "Sector Tosagua",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector Si vivienda",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector Cuba",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "sector El prado",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector Santa Lucia",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector Jacobo vera",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector La revancha 1/2",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector Palo santo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector Los artesanos",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector Leónidas Proaño",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector Monterrey",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector 20 de mayo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector Los geranios Parte de atrás",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "MANTA",
+    "sector": "Sector 5 de agosto",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "ELCARMEN",
+    "sector": "Sector Pedernales",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "ELCARMEN",
+    "sector": "Sector Manga del cura",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "JIPIJAPA",
+    "sector": "Sector Puerto Lopez",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "JIPIJAPA",
+    "sector": "Sector Puerto Cayo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "JIPIJAPA",
+    "sector": "Sector Pajan",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "JIPIJAPA",
+    "sector": "Sector Sancan",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "San Alejo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "La piñonada",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Los Florones (Florón)",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Vía a Sta Ana:",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Desde el Guabito hasta estancia vieja.",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Cdla. Vicente Vélez",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "El Fátima",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Parroquia San Pablo..",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Subidita al cielo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "La Briones",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Sector de Lea",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Sector El Becker",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "El zapallo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "El puño",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Vía El Rodeo- Calderón, Alajuela, San Plácido, pueblo Nuevo, río chico",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Picoaza(el pedregal, Chimborazo,loma del calvario, vía a las canteras)",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Loma del muladar..",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "MANABI",
+    "destination": "PORTOVIEJO",
+    "sector": "Los cerezos",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "Tierras coloradas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "Chamanal de obrapia",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "Menfis alto y menfis central",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "San Cayetano alto",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "Barrio Parra",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "Bolacachi",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "Zona de tolerancia vía a Zamora",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "El Calvario",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "Motupe alto",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "Sauces norte",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "LOJA",
+    "destination": "LOJA",
+    "sector": "Lolita Samaniego",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "LA TRONCAL",
+    "sector": "Puente Palo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "LA TRONCAL",
+    "sector": "El Triunfo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "LA TRONCAL",
+    "sector": "La Puntilla",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "LA TRONCAL",
+    "sector": "La Voluntad",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Flor de oriente",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Guadalupe larriva",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Union imbabureña",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "EL COCA",
+    "sector": "Luis Guerra",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "ancon",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "anconcito",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "Chanduy",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "vía santa Elena",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "via Ancon",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "Narcisa de Jesús",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "El tablazo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "San Pablo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "Palmar",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "monteverde",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "Velasco Ibarra",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "Jaime Roldós",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "San Raimundo",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "propicia",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "las minas",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "palmeras",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "santa rosa",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "SANTA ELENA",
+    "sector": "Barrio Bazán",
+    "observation": "Se coordina punto de encuentro seguro con el cliente."
+  }
+]

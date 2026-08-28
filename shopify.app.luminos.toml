@@ -1,0 +1,35 @@
+# Configuración de producción exclusiva para Luminos.
+# Shopify redirige luminos-korean-2.myshopify.com al dominio canónico siguiente.
+client_id = "cbae34484a0c9e87a35f9b997af94db6"
+name = "Masad COD Luminos"
+application_url = "https://masad-cod-luminos-production.up.railway.app"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+
+[access_scopes]
+scopes = "read_products,read_orders,write_orders,write_draft_orders,write_app_proxy"
+
+[auth]
+redirect_urls = [ "https://masad-cod-luminos-production.up.railway.app/auth/callback" ]
+
+[webhooks]
+api_version = "2026-07"
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/app/uninstalled"
+  topics = ["app/uninstalled"]
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+  [[webhooks.subscriptions]]
+  topics = [ "orders/create" ]
+  uri = "/webhooks/orders/create"
+
+[app_proxy]
+url = "https://masad-cod-luminos-production.up.railway.app/proxy"
+subpath = "global-aura-recovery"
+prefix = "apps"

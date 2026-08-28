@@ -1,0 +1,221 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Note that some adapters may set a maximum length for the String type by default, please ensure your strings are long
+// enough when changing adapters.
+// See https://www.prisma.io/docs/orm/reference/prisma-schema-reference#string for more information
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id            String    @id
+  shop          String
+  state         String
+  isOnline      Boolean   @default(false)
+  scope         String?
+  expires       DateTime?
+  accessToken   String
+  userId        BigInt?
+  firstName     String?
+  lastName      String?
+  email         String?
+  accountOwner  Boolean   @default(false)
+  locale        String?
+  collaborator  Boolean?  @default(false)
+  emailVerified Boolean?  @default(false)
+  refreshToken        String?
+  refreshTokenExpires DateTime?
+}
+
+model AppConfig {
+  id                  Int      @id @default(autoincrement())
+  shop                String   @unique
+  timezone            String   @default("America/Guayaquil")
+  delayHours          Int      @default(12)
+  sendStartHour       Int      @default(8)
+  sendEndHour         Int      @default(21)
+  priorityFee         Decimal  @default(2.50)
+  riskMaxQuantity     Int      @default(5)
+  riskMaxOrderValue   Decimal  @default(80)
+  sectorFieldEnabled  Boolean  @default(false)
+  formEnabled         Boolean  @default(true)
+  pancakeMode         String   @default("mock")
+  pancakeEndpoint     String?
+  pancakePageId       String?
+  pancakeAccessToken  String?
+  pancakeTemplateName String?
+  pancakeTemplateId   String?
+  pancakeTemplateLang String   @default("es")
+  pancakeDraftMode    Boolean  @default(false)
+  formBuilderJson     String   @default("{}")
+  salesToolsJson      String   @default("{}")
+  integrationsJson    String   @default("{}")
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model CartSession {
+  id                String    @id @default(cuid())
+  shop              String
+  browserSessionId  String
+  recoveryToken     String    @unique @default(uuid())
+  status            String    @default("ACTIVE")
+  fullName          String?
+  phone             String?
+  phoneNormalized   String?
+  email             String?
+  province          String?
+  city              String?
+  sector            String?
+  address           String?
+  reference         String?
+  consentWhatsapp   Boolean   @default(false)
+  consentAt         DateTime?
+  shippingMethod    String    @default("FREE")
+  paymentMethod     String    @default("COD")
+  currency          String    @default("USD")
+  subtotal          Decimal   @default(0)
+  linesJson         String    @default("[]")
+  attributionJson   String    @default("{}")
+  riskScore         Int       @default(0)
+  riskReasonsJson   String    @default("[]")
+  riskZoneMatch     String?
+  lastActivityAt    DateTime  @default(now())
+  sendAt            DateTime?
+  messageSentAt     DateTime?
+  clickedAt         DateTime?
+  recoveredAt       DateTime?
+  orderId           String?
+  orderTotal        Decimal?
+  draftOrderId      String?
+  draftOrderName    String?
+  draftedAt         DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  messageAttempts MessageAttempt[]
+  fraudIpAttempts FraudIpAttempt[]
+
+  @@unique([shop, browserSessionId])
+  @@index([shop, status, sendAt])
+  @@index([shop, phoneNormalized])
+}
+
+model FraudIpAttempt {
+  id           String      @id @default(cuid())
+  shop         String
+  clientIpHash String
+  cartSessionId String     @unique
+  createdAt    DateTime    @default(now())
+  cartSession  CartSession @relation(fields: [cartSessionId], references: [id], onDelete: Cascade)
+
+  @@index([shop, clientIpHash, createdAt])
+}
+
+model FraudIpBlock {
+  id           String   @id @default(cuid())
+  shop         String
+  clientIpHash String
+  reason       String
+  attemptCount Int      @default(3)
+  blockedAt    DateTime @default(now())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([shop, clientIpHash])
+  @@index([shop, blockedAt])
+}
+
+model CustomerFraudBlock {
+  id              String   @id @default(cuid())
+  shop            String
+  phoneNormalized String
+  customerName    String?
+  reason          String?
+  active          Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([shop, phoneNormalized])
+  @@index([shop, active, createdAt])
+}
+
+model MessageAttempt {
+  id             String      @id @default(cuid())
+  cartSessionId  String
+  provider       String      @default("PANCAKE")
+  status         String
+  providerId     String?
+  error          String?
+  responseJson   String?
+  createdAt      DateTime    @default(now())
+  cartSession    CartSession @relation(fields: [cartSessionId], references: [id], onDelete: Cascade)
+
+  @@index([cartSessionId, createdAt])
+}
+
+model CoverageRule {
+  id                  Int      @id @default(autoincrement())
+  shop                String
+  province            String
+  city                String
+  normalizedProvince  String
+  normalizedCity      String
+  coverageType        String
+  deliveryDays        String
+  active              Boolean  @default(true)
+  source              String   @default("EXCEL_2026_02")
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@unique([shop, normalizedProvince, normalizedCity])
+  @@index([shop, normalizedProvince])
+}
+
+model RiskZone {
+  id                  Int      @id @default(autoincrement())
+  shop                String
+  province            String
+  city                String
+  sector              String
+  normalizedProvince  String
+  normalizedCity      String
+  normalizedSector    String
+  observation         String
+  active              Boolean  @default(true)
+  source              String   @default("EXCEL_2026_02")
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@unique([shop, normalizedProvince, normalizedCity, normalizedSector])
+  @@index([shop, normalizedProvince, normalizedCity, active])
+}
+
+model TrackingPixel {
+  id                String   @id @default(cuid())
+  shop              String
+  platform          String
+  name              String
+  pixelId           String
+  apiToken          String?
+  testEventCode     String?
+  active            Boolean  @default(true)
+  viewContent       Boolean  @default(true)
+  addToCart         Boolean  @default(true)
+  initiateCheckout  Boolean  @default(true)
+  addPaymentInfo    Boolean  @default(true)
+  purchase          Boolean  @default(true)
+  lastSentAt        DateTime?
+  lastError         String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([shop, platform, pixelId])
+  @@index([shop, active])
+}

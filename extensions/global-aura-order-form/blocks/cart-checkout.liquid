@@ -1,0 +1,33 @@
+{% if request.page_type == 'cart' %}
+  <style>
+    .ga-cart-cod-button { width: 100%; min-height: 58px; border: 1px solid var(--ga-cart-button-border, #087ec4); border-radius: var(--ga-cart-button-radius, 14px); background: var(--ga-cart-button-bg, linear-gradient(135deg, #087ec4, #05a7ea)); color: var(--ga-cart-button-text, #fff); font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; box-shadow: 0 10px 22px rgba(5, 126, 196, .26); }
+    .ga-cart-cod-button.ga-cart-fraud-blocked { background: #68717d; cursor: not-allowed; opacity: .88; }
+    /* El formulario de producto puede detectar el botón de EasySell dentro del
+       carrito. Aquí dejamos visible únicamente el flujo de carrito de Masad. */
+    .cart-drawer__footer .ga-popup-trigger--drawer { display: none !important; }
+    [data-ga-native-checkout-hidden="true"] { display: none !important; }
+    .ga-cart-order-summary { display: grid; gap: 10px; padding: 14px; margin-bottom: 16px; border: 1px solid #d7e2f0; border-radius: 12px; background: #f7fbff; }
+    .ga-cart-order-line, .ga-cart-order-total { display: flex; justify-content: space-between; gap: 12px; color: #0b2244; }
+    .ga-cart-order-line { font-size: 14px; }
+    .ga-cart-order-total { padding-top: 10px; border-top: 1px solid #d7e2f0; font-size: 16px; }
+  </style>
+  <script src="{{ 'global-aura-cart-controls.js' | asset_url }}" defer></script>
+  <script src="{{ 'global-aura-attribution.js' | asset_url }}" defer></script>
+  <script src="{{ 'global-aura-cart-checkout.js' | asset_url }}" defer></script>
+  <div
+    data-ga-cart-checkout
+    data-ga-proxy="/apps/global-aura-recovery/cart"
+    data-ga-priority-fee="2.50"
+    hidden
+    {{ block.shopify_attributes }}
+  ></div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Masad COD en carrito",
+  "target": "body",
+  "stylesheet": "global-aura-form.css",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,266 @@
+{% if product %}
+  <style>
+    html.ga-masad-enabled #MainProduct-{{ section.id }} .ga-add-to-cart-wrapper {
+      display: block !important;
+    }
+    html.ga-masad-enabled #MainProduct-{{ section.id }} .ga-add-to-cart {
+      display: none !important;
+    }
+    .ga-order-modal .ga-submit {
+      background: linear-gradient(135deg, #087ec4, #05a7ea);
+      box-shadow: 0 10px 22px rgba(5, 126, 196, 0.26);
+    }
+    .ga-popup-trigger {
+      background: linear-gradient(135deg, #087ec4, #05a7ea);
+      box-shadow: 0 10px 22px rgba(5, 126, 196, 0.26);
+    }
+    .ga-popup-trigger--main {
+      margin: 0 0 12px;
+    }
+    .ga-popup-trigger--drawer {
+      margin-top: 12px;
+    }
+    .ga-pack-card {
+      align-items: start;
+    }
+    .ga-pack-selectors {
+      display: none;
+      grid-column: 1 / -1;
+      gap: 8px;
+      width: 100%;
+      padding: 8px 0 3px;
+    }
+    .ga-pack-card:has(> input:checked) .ga-pack-selectors {
+      display: grid;
+    }
+    .ga-unit-headings,
+    .ga-unit-row {
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr) minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+    }
+    .ga-unit-headings {
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .ga-unit-row strong {
+      font-size: 14px;
+    }
+    .ga-unit-row select {
+      width: 100%;
+      min-width: 0;
+      min-height: 42px;
+      padding: 8px 10px;
+      border: 1px solid #cfd8e6;
+      border-radius: 9px;
+      background: #fff;
+      color: #0b2244;
+      font: inherit;
+    }
+    .ga-variants--inline {
+      width: 100%;
+      margin: 0 0 12px;
+    }
+    .ga-variants--inline > legend {
+      display: none;
+    }
+    .ga-variants--inline .ga-variant-card {
+      width: 100%;
+    }
+    .ga-popup-trigger--sticky {
+      display: none !important;
+    }
+    html.ga-masad-enabled #es-popup-button {
+      display: none !important;
+    }
+    .ga-popup-trigger::before {
+      content: "";
+      display: inline-block;
+      width: 17px;
+      height: 17px;
+      margin-right: 9px;
+      vertical-align: -3px;
+      background: currentColor;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 7V6a5 5 0 0 1 10 0v1h3v15H4V7h3Zm2 0h6V6a3 3 0 0 0-6 0v1Z'/%3E%3C/svg%3E") center / contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 7V6a5 5 0 0 1 10 0v1h3v15H4V7h3Zm2 0h6V6a3 3 0 0 0-6 0v1Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+  </style>
+  <script src="{{ 'global-aura-customizer.js' | asset_url }}" defer></script>
+  <script src="{{ 'global-aura-fraud-guard.js' | asset_url }}" defer></script>
+  <script src="{{ 'global-aura-cart-controls.js' | asset_url }}" defer></script>
+  <script src="{{ 'global-aura-attribution.js' | asset_url }}" defer></script>
+  {% assign masad_form_settings = app.metafields.masad_cod.form_builder.value %}
+  {% assign masad_button_text = masad_form_settings.buttonText | default: 'PAGA AL RECIBIR' %}
+  <button class="ga-popup-trigger ga-popup-trigger--main ga-customized-trigger" type="button" aria-haspopup="dialog">
+    {{ masad_button_text }}
+  </button>
+  <div
+    class="ga-order-modal"
+    data-ga-proxy="/apps/global-aura-recovery/cart"
+    data-e="{{ 'global-aura-events.js' | asset_url }}"
+    data-ga-coverage="{{ 'global-aura-coverage.js' | asset_url }}"
+    data-ga-product-title="{{ product.title | escape }}"
+    data-ga-priority-fee="2.50"
+    data-ga-form-settings="{{ app.metafields.masad_cod.form_builder.value | json | escape }}"
+    data-ga-sales-settings="{{ app.metafields.masad_cod.sales_tools.value | json | escape }}"
+    hidden
+    {{ block.shopify_attributes }}
+  >
+    <button class="ga-modal-backdrop" type="button" data-ga-modal-close aria-label="Cerrar formulario"></button>
+    <section class="ga-order-form" role="dialog" aria-modal="true" aria-label="Completa tu pedido">
+    <button class="ga-modal-close" type="button" data-ga-modal-close aria-label="Cerrar formulario">×</button>
+    <div class="ga-form-heading">
+      <span class="ga-form-kicker">COMPRA RÁPIDA Y SEGURA</span>
+      <h2>{{ block.settings.heading }}</h2>
+      <p>{{ block.settings.subheading }}</p>
+    </div>
+
+    <form class="ga-form" novalidate>
+      <span data-ga-offers-anchor hidden></span>
+      <fieldset class="ga-variants" data-ga-variant-fieldset>
+        <legend>Escoge tu promoción</legend>
+        {% if product.options.size > 1 %}
+          {% assign rendered_packs = '|' %}
+          {% for variant in product.variants %}
+            {% capture pack_token %}|{{ variant.option1 }}|{% endcapture %}
+            {% unless rendered_packs contains pack_token %}
+              {% assign pack_variant = variant %}
+              {% for candidate in product.variants %}
+                {% if candidate.option1 == variant.option1 and candidate.available %}
+                  {% assign pack_variant = candidate %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              {% assign unit_count = variant.option1 | split: ' ' | first | plus: 0 %}
+              {% if unit_count < 1 %}{% assign unit_count = 1 %}{% endif %}
+              {% assign variant_image = pack_variant.featured_image | default: product.featured_image %}
+              {% assign savings_percent = 0 %}
+              {% if pack_variant.compare_at_price > pack_variant.price %}
+                {% assign savings_amount = pack_variant.compare_at_price | minus: pack_variant.price %}
+                {% assign savings_percent = savings_amount | times: 100.0 | divided_by: pack_variant.compare_at_price | round %}
+              {% endif %}
+              <label class="ga-variant-card ga-pack-card{% unless pack_variant.available %} is-unavailable{% endunless %}" data-ga-pack-card>
+                <input
+                  type="radio"
+                  name="variantId"
+                  value="{{ pack_variant.id }}"
+                  data-price="{{ pack_variant.price | divided_by: 100.0 }}"
+                  data-compare-price="{{ pack_variant.compare_at_price | divided_by: 100.0 }}"
+                  data-pack="{{ variant.option1 | escape }}"
+                  {% if variant.option1 == product.selected_or_first_available_variant.option1 %}checked{% endif %}
+                  {% unless pack_variant.available %}disabled{% endunless %}
+                  required
+                >
+                <span class="ga-variant-image">
+                  {% if variant_image %}
+                    {{ variant_image | image_url: width: 160 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '80, 120, 160', alt: variant.option1 }}
+                  {% endif %}
+                </span>
+                <span class="ga-variant-info">
+                  <strong>{{ variant.option1 }}</strong>
+                  {% if savings_percent > 0 %}<em>Ahorra {{ savings_percent }}%</em>{% endif %}
+                  {% unless pack_variant.available %}<small>Agotado</small>{% endunless %}
+                </span>
+                <span class="ga-variant-prices">
+                  {% if pack_variant.compare_at_price > pack_variant.price %}<del>{{ pack_variant.compare_at_price | money }}</del>{% endif %}
+                  <b data-ga-pack-price>{{ pack_variant.price | money }}</b>
+                </span>
+                <span class="ga-pack-selectors" data-ga-pack-selectors>
+                  <span class="ga-unit-headings" aria-hidden="true">
+                    <span></span>
+                    <span>{{ product.options_with_values[1].name }}</span>
+                    {% if product.options.size > 2 %}<span>{{ product.options_with_values[2].name }}</span>{% endif %}
+                  </span>
+                  {% for unit_number in (1..unit_count) %}
+                    <span class="ga-unit-row" data-ga-unit-row>
+                      <strong>#{{ unit_number }}</strong>
+                      <select data-ga-unit-select data-ga-option-index="1" aria-label="{{ product.options_with_values[1].name }} de la unidad {{ unit_number }}">
+                        {% for option_value in product.options_with_values[1].values %}<option value="{{ option_value | escape }}">{{ option_value }}</option>{% endfor %}
+                      </select>
+                      {% if product.options.size > 2 %}
+                        <select data-ga-unit-select data-ga-option-index="2" aria-label="{{ product.options_with_values[2].name }} de la unidad {{ unit_number }}">
+                          {% for option_value in product.options_with_values[2].values %}<option value="{{ option_value | escape }}">{{ option_value }}</option>{% endfor %}
+                        </select>
+                      {% endif %}
+                    </span>
+                  {% endfor %}
+                </span>
+              </label>
+              {% capture rendered_packs %}{{ rendered_packs }}{{ pack_token }}{% endcapture %}
+            {% endunless %}
+          {% endfor %}
+          <script type="application/json" data-ga-variant-map>{{ product.variants | json }}</script>
+        {% else %}
+          {% for variant in product.variants %}
+            {% assign variant_image = variant.featured_image | default: product.featured_image %}
+            {% assign savings_percent = 0 %}
+            {% if variant.compare_at_price > variant.price %}
+              {% assign savings_amount = variant.compare_at_price | minus: variant.price %}
+              {% assign savings_percent = savings_amount | times: 100.0 | divided_by: variant.compare_at_price | round %}
+            {% endif %}
+            <label class="ga-variant-card{% unless variant.available %} is-unavailable{% endunless %}">
+              <input type="radio" name="variantId" value="{{ variant.id }}" data-price="{{ variant.price | divided_by: 100.0 }}" data-compare-price="{{ variant.compare_at_price | divided_by: 100.0 }}" {% if variant == product.selected_or_first_available_variant %}checked{% endif %} {% unless variant.available %}disabled{% endunless %} required>
+              <span class="ga-variant-image">{% if variant_image %}{{ variant_image | image_url: width: 160 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '80, 120, 160', alt: variant.title }}{% endif %}</span>
+              <span class="ga-variant-info"><strong>{{ variant.title }}</strong>{% if savings_percent > 0 %}<em>Ahorra {{ savings_percent }}%</em>{% endif %}{% unless variant.available %}<small>Agotado</small>{% endunless %}</span>
+              <span class="ga-variant-prices">{% if variant.compare_at_price > variant.price %}<del>{{ variant.compare_at_price | money }}</del>{% endif %}<b>{{ variant.price | money }}</b></span>
+            </label>
+          {% endfor %}
+        {% endif %}
+      </fieldset>
+
+      <input name="quantity" type="hidden" value="1">
+
+      <div class="ga-field"><label for="ga-name-{{ block.id }}">Nombre completo <span>*</span></label><input id="ga-name-{{ block.id }}" name="fullName" autocomplete="name" placeholder="Ejem: Andrea España" required></div>
+      <div class="ga-field"><label for="ga-phone-{{ block.id }}">Celular <span>*</span></label><input id="ga-phone-{{ block.id }}" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ejem: 0995393511" pattern="^(?:\+?593|0)?9[0-9]{8}$" required></div>
+
+      <div class="ga-two-columns">
+        <div class="ga-field"><label for="ga-province-{{ block.id }}">Provincia <span>*</span></label><select id="ga-province-{{ block.id }}" name="province" required><option value="">Provincia</option></select></div>
+        <div class="ga-field"><label for="ga-city-{{ block.id }}">Ciudad <span>*</span></label><select id="ga-city-{{ block.id }}" name="city" required disabled><option value="">Ciudad</option></select></div>
+      </div>
+
+      <div class="ga-field" data-ga-sector-field hidden><label for="ga-sector-{{ block.id }}">Sector o barrio <span>*</span></label><input id="ga-sector-{{ block.id }}" name="sector" placeholder="Ejem: Turi"></div>
+      <div class="ga-field"><label for="ga-address-{{ block.id }}">Dirección <span>*</span></label><input id="ga-address-{{ block.id }}" name="address" autocomplete="street-address" placeholder="Ejem: 6 de diciembre y Las Shyris" required></div>
+      <div class="ga-field"><label for="ga-reference-{{ block.id }}">Referencia <span>*</span></label><input id="ga-reference-{{ block.id }}" name="reference" placeholder="Ejem: Casa blanca junto al Tía" required></div>
+      <div class="ga-field"><label for="ga-email-{{ block.id }}">Correo electrónico <span>*</span></label><input id="ga-email-{{ block.id }}" name="email" type="email" autocomplete="email" placeholder="Ejem: usuario@gmail.com" required></div>
+
+      <fieldset class="ga-options">
+        <legend>Método de envío</legend>
+        <label><input type="radio" name="shippingMethod" value="FREE" checked required><span><strong>Envío GRATIS</strong><small>Entrega normal</small></span><b>$0,00</b></label>
+        <label><input type="radio" name="shippingMethod" value="PRIORITY"><span><strong>Envío prioritario</strong><small>Preparación preferente</small></span><b data-ga-priority-label>$2,50</b></label>
+        <label data-ga-agency-option hidden><input type="radio" name="shippingMethod" value="AGENCY"><span><strong>Agencia Servientrega</strong><small>Retiro seguro en agencia</small></span><b>$0,00</b></label>
+      </fieldset>
+
+      <div class="ga-zone-alert" data-ga-zone-alert hidden></div>
+
+      <fieldset class="ga-options">
+        <legend>Método de pago</legend>
+        <label><input type="radio" name="paymentMethod" value="COD" checked required><span><strong>Pago contra entrega</strong><small>Paga cuando recibas</small></span></label>
+      </fieldset>
+
+      <label class="ga-consent"><input type="checkbox" name="consentWhatsapp" required><span>Acepto recibir por WhatsApp información sobre esta compra</span></label>
+
+      <div class="ga-total"><span>Total estimado</span><strong data-ga-total>{{ product.selected_or_first_available_variant.price | money }}</strong></div>
+      <button class="ga-submit" type="submit">{{ block.settings.button_text }}</button>
+      <p class="ga-status" data-ga-status aria-live="polite"></p>
+      <p class="ga-secure">🔒 Precios e inventario verificados directamente con Shopify</p>
+    </form>
+    </section>
+  </div>
+{% else %}
+  <div class="ga-order-form ga-editor-placeholder" {{ block.shopify_attributes }}>Este bloque debe colocarse en una plantilla de producto.</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Pedido rápido Global Aura",
+  "target": "section",
+  "stylesheet": "global-aura-form.css",
+  "javascript": "global-aura-form.js",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Título", "default": "Completa tu pedido" },
+    { "type": "text", "id": "subheading", "label": "Subtítulo", "default": "Envío gratis y pago al recibir en todo Ecuador" },
+    { "type": "text", "id": "button_text", "label": "Texto del botón", "default": "FINALIZAR PEDIDO" }
+  ]
+}
+{% endschema %}

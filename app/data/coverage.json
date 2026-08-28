@@ -1,0 +1,2612 @@
+[
+  {
+    "province": "AZUAY",
+    "destination": "Chordeleg",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Cuenca",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "El Pan",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Guachapala",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Gualaceo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Girón",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Nabón",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Oña",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Paute",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Pucará",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "San Fernando",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Sigsig",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Cumbe",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Camilo Ponce Enríquez",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Sayausi",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Paccha",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Sidcay",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Ricaurte",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "San Joaquin",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Santa Isabel",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "AZUAY",
+    "destination": "Sevilla de Oro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "Primero De Mayo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "Asunción",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "La Magdalena",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "San Jose De Chimbo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "San Pedro De Guanujo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "Caluma",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "Chimbo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "Chillanes",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "Echeandía",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "Guaranda",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "Las Naves",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "San Miguel",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "San Lorenzo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "San Sebastián",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "San Simón",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "BOLIVAR",
+    "destination": "Santa Fé",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "Azogues",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "Biblián",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "Cañar",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "Delég",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "El Tambo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "La Troncal",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "Suscal",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "Cojitambo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "Guapán",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "Javier Loyola",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "Luis Cordero",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "Manuel J Calle",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CAÑAR",
+    "destination": "San Miguel",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CARCHI",
+    "destination": "Bolivar",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CARCHI",
+    "destination": "Espejo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CARCHI",
+    "destination": "Mira",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CARCHI",
+    "destination": "Montufar",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CARCHI",
+    "destination": "San Pedro de Huaca",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CARCHI",
+    "destination": "Tulcán",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CARCHI",
+    "destination": "San Gabriel",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Alausí",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Chambo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Cumandá",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Chunchi",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Colta",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Guamote",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Guano",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Pallatanga",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Penipe",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Riobamba",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Lican",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "San Andrés",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "San Luis",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Yaruquies",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Flores",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Ilapo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Licto",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "Punin",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "CHIMBORAZO",
+    "destination": "San Juan",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Latacunga",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "La Maná",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Pujilí",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Sigchos",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Salcedo",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Saquisilí",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Belisario Quevedo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Guaytacama",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Lasso",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Mulalo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Panzaleo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Pastocalle",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Poalo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Tanicuchi",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Toacaso",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Alaques",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Mulliquindil",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "COTOPAXI",
+    "destination": "Once de noviembre",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Arenillas",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Atahualpa",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Balsas",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "El Guabo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Huaquillas",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Las Lajas",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Machala",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Marcabelí",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Pasaje",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Piñas",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Portovelo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Santa Rosa",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Zaruma",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Barbones",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Buena Vista",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Cana Quemada",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "El Cambio",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "La Avanzada",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "La Iberia",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "La Peaña",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Bellavista",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "El retiro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Puerto Bolivar",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Olmedo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Manga del Cura",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Torata",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "EL ORO",
+    "destination": "Victoria (Santa Rosa)",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Atacames",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Eloy Alfaro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Esmeraldas",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Quinindé",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Rio Verde",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "San Lorenzo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Colimes",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Tonsupa",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Sua",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "La Concordia",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Tachina",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Viche",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "San Mateo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Tabiazo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ESMERALDAS",
+    "destination": "Vuelta Larga",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Colimes",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Alfredo Baquerizo Moreno",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Balao",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Balzar",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Coronel Marcelino Maridueña",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Daule",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Durán",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "El Empalme",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "El Triunfo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "El Piedrero",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "General Antonio Elizalde",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Guayaquil",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Isidro Ayora",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Lomas de Sargentillo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Milagro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Nobol",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Naranjal",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Naranjito",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Palestina",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Pedro Carbo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Gral Villamil Playas",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Simon Bolivar",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Santa Lucia",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Samborondón",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Salitre",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Yaguachi",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Boliche",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Bucay",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Jujan",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "La Puntilla",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Las Mercedes",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Los Tintos",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Mariscal Sucre",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Posorja",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Progreso",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Roberto Astudillo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Villa Nueva",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Chobo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Laurel",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "GUAYAS",
+    "destination": "Limonal",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Antonio Ante",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Cotacachi",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Ibarra",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Otavalo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Pimampiro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "San Miguel de Urcuquí",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Alpachaca",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Andrade Marin",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Atuntaqui",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Caranqui",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Chaltura",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Chorlavi",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "El Olivo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "El Retorno",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Natabuela",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Quiroga",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "San Antonio De Ibarra",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "San Pablo Del Lago",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "San Roque",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Yaguarcocha",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Eugenio Espejo (Calpaqui)",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Gonzales Suárez",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Imantag",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Imbaya (San Luis de Cobuendo)",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Peguche",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Las Golondrinas",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "San Blas",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "San Juan de Iluman",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Tumbabiro",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "Urcuquí",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "IMBABURA",
+    "destination": "La Esperanza",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Celica",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Chaguarpamba",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Catamayo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Espíndola",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Gonzanamá",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Loja",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Macará",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Olmedo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Paltas",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Pindal",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Puyango",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Quilanga",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Saraguro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Sozoranga",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Zapotillo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Alamor",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Cariamanga",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Vilcabamba",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "San Sebastian",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOJA",
+    "destination": "Sucre",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Baba",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Buena Fé",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Babahoyo",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Mocache",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Montalvo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Palenque",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Pueblo Viejo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Quevedo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Urdaneta",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Valencia",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Ventanas",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Vinces",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Caracol",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "La Esperanza",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "La Unión (Babahoyo)",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "La Union (Valencia)",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Pimocha",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Quinsaloma",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "San Camilo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "San Carlos",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "LOS RIOS",
+    "destination": "Zapotal",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Bolivar",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Chone",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "El Carmen",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Flavio Alfaro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Jipijapa",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Jama",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Junin",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Jaramijó",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Manta",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Montecristi",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Pajan",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Pedernales",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Pichincha",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Puerto Lopez",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Portoviejo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Rocafuerte",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Santa Ana",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Sucre",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "San Vicente",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Tosagua",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Veinticuatro de Mayo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Pueblo Nuevo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Alhajuela",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Bahia de Caraquez",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Calceta",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Canuto",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Crucita",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Río Chico",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "San Antonio",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "San Placido",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "San Pedro de Suma",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Ricaurte",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MANABI",
+    "destination": "Coaque",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Gualaquiza",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Huamboya",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Limón Indanza",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Logroño",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Morona",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Palora",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Pablo Sexto",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Sucúa",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Taisha",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Macas",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Santiago de Méndez",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Tiwintza",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "General Proaño",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Río Blanco",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "San Isidro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "MORONA SANTIAGO",
+    "destination": "Sevilla don Bosco",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "NAPO",
+    "destination": "Archidona",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "NAPO",
+    "destination": "Carlos Julio Arosemena",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "NAPO",
+    "destination": "El Chaco",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "NAPO",
+    "destination": "Tena",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "NAPO",
+    "destination": "Baeza",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "NAPO",
+    "destination": "Cotundo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "NAPO",
+    "destination": "Puerto Napo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "NAPO",
+    "destination": "Pano",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "NAPO",
+    "destination": "Puerto Misahualli",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "NAPO",
+    "destination": "San Pablo de Ushpayacu",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "El Coca",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "Enokanqui",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "Lago San Pedro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "San Carlos",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "San Sebastian del Coca",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "Unión Milagreña",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "Aguarico",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "Francisco de Orellana",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "Joya de los Sachas",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "Loreto",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ORELLANA",
+    "destination": "Puerto Francisco de Orellana",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PASTAZA",
+    "destination": "Diez de Agosto",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PASTAZA",
+    "destination": "Fátima",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PASTAZA",
+    "destination": "Arajuno",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PASTAZA",
+    "destination": "Mera",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PASTAZA",
+    "destination": "Puyo",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PASTAZA",
+    "destination": "Shell",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PASTAZA",
+    "destination": "Pastaza",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PASTAZA",
+    "destination": "Santa Clara",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Cayambe",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Pedro Moncayo",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Puerto Quito",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Pedro Vicente Maldonado",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Quito",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Rumiñahui",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "San Miguel de los Bancos",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Calderón",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Alangasi",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Aloag",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Amaguaña",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Ayora",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Conocoto",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Cumbayá",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Guayllabamba",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "La Armenia",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Llano Chico",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Llano Grande",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Machachi",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Miravalle",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Pifo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Pintag",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Pomasqui",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Puembo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Pusuqui",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "San Antonio De Pichincha",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "San Jose de Morán",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "San Juan De Calderón",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Sangolqui",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Tababela",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Tabacundo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Tambillo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Zámbiza",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "San Rafael",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Cotogchoa",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Guangopolo",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "La Merced",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Olmedo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "La Esperanza",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Nayón",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Otón",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Tocachi",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Tumbaco",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Tupigachi",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Yaruquí",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "Checa",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "PICHINCHA",
+    "destination": "El Quinche",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "La Libertad",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "Santa Elena",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "Salinas",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "Ancón",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "Anconcito",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "Ballenita",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTA ELENA",
+    "destination": "Muey",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "Santo Domingo",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "Alluriquín",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "Luz De America",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "Abraham Calazacón",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "Bombolí",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "Chiguilpe",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "Río Toachi",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SANTO DOMINGO DE LOS TSACHILAS",
+    "destination": "La Concordia",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Cascales",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Cuyabeno",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Gonzalo Pizarro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Lago Agrio",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Shushufindi",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Sucumbíos",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "46210",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Jivino Verde",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Pacayacu",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Santa Cecilia",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "El Eno",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "General Farfán",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Jambelí",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "SUCUMBIOS",
+    "destination": "Nueva Loja",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Ambato",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Baños de Agua Santa",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Cevallos",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Mocha",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Patate",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "San Pedro de Pelileo",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Santiago de Píllaro",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Quero",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Tisaleo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Quisapincha",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Santa Rosa (Ambato)",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Atahualpa (Chisalata)",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Cuchibamba",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Huachi Grande",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Izamba",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Mundugleo",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Picaigua",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Pinllo",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Quinchicoto",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Salasaca",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Totoras",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "TUNGURAHUA",
+    "destination": "Unamuncho",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "Centinela Del Condor",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "Chinchipe",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "El Pangui",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "Nangaritza",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "Palanda",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "Yacuambi",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "Yantzaza",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "Zamora",
+    "coverageType": "NORMAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "Cumbaratza",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "Paquisha",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  },
+  {
+    "province": "ZAMORA CHINCHIPE",
+    "destination": "Timbara",
+    "coverageType": "ESPECIAL",
+    "deliveryDays": "lunes a sábado"
+  }
+]

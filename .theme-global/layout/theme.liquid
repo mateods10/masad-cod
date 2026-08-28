@@ -1,0 +1,1864 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta name="google-site-verification" content="WqzXo2-GzoJu_-ZdqMe3wcl95z6tM5Sxs7L2WzYXzNw" />
+    <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
+    <meta
+      name="theme-color"
+      content="{{ settings.color_primary }}"
+    >
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="icon"
+        type="image/png"
+        href="{{ settings.favicon | image_url: width: 64, height: 64 }}"
+      >
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %}
+        — {{ current_tags | join: ', ' }}
+      {% endif -%}
+      {%- if current_page != 1 %}
+        — Página {{ current_page }}
+      {% endif -%}
+      {%- unless page_title contains shop.name %}
+        — {{ shop.name }}
+      {% endunless -%}
+    </title>
+
+    {%- if page_description -%}
+      <meta
+        name="description"
+        content="{{ page_description | escape }}"
+      >
+    {%- endif -%}
+
+    {{ content_for_header }}
+
+    <style>
+      :root {
+        --ga-primary: {{ settings.color_primary }};
+        --ga-primary-dark: {{ settings.color_primary_dark }};
+        --ga-accent: {{ settings.color_accent }};
+        --ga-cream: {{ settings.color_cream }};
+        --ga-text: {{ settings.color_text }};
+        --ga-muted: {{ settings.color_muted }};
+        --ga-radius: {{ settings.card_radius }}px;
+        --ga-page-width: {{ settings.page_width }}px;
+      }
+    </style>
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    <script>
+      document.documentElement.classList.remove('no-js');
+
+      window.GARoutes = {
+        root: {{ routes.root_url | json }},
+        cart: {{ routes.cart_url | json }},
+        cartAdd: {{ routes.cart_add_url | json }},
+        cartChange: {{ routes.cart_change_url | json }}
+      };
+    </script>
+
+    <script
+      src="{{ 'theme.js' | asset_url }}"
+      defer="defer"
+    ></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#MainContent">
+      Saltar al contenido
+    </a>
+
+    {% sections 'header-group' %}
+
+    <main
+      id="MainContent"
+      class="main-content"
+      role="main"
+      tabindex="-1"
+    >
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+    {% section 'cart-drawer' %}
+
+    {% if template.name == 'product' %}
+      <style>
+        /* Transición de la imagen principal */
+        .js-product-gallery-main {
+          transition: opacity 0.2s ease;
+        }
+
+        /* Borde de la miniatura seleccionada */
+        .js-product-thumb-active {
+          outline: 2px solid #2d7fa3 !important;
+          outline-offset: 2px;
+          border-radius: 12px;
+        }
+      </style>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          /*
+           * Convierte la URL pequeña de Shopify
+           * en una imagen grande y nítida.
+           */
+          function getLargeShopifyImage(url) {
+            if (!url) return '';
+
+            try {
+              const imageUrl = new URL(
+                url,
+                window.location.origin
+              );
+
+              imageUrl.pathname = imageUrl.pathname.replace(
+                /_\d{2,4}x\d{0,4}(?:_crop_[^./?]+)?(?=\.(jpg|jpeg|png|webp|avif))/i,
+                ''
+              );
+
+              imageUrl.searchParams.set('width', '1600');
+
+              return imageUrl.toString();
+            } catch (error) {
+              return url;
+            }
+          }
+
+          /*
+           * Busca la mejor URL disponible
+           * dentro de la miniatura seleccionada.
+           */
+          function getThumbnailImageUrl(image) {
+            const clickableElement = image.closest(
+              'a, button, [data-full-image], [data-image], [data-image-url], [data-src]'
+            );
+
+            const possibleUrls = [
+              clickableElement?.dataset?.fullImage,
+              clickableElement?.dataset?.imageUrl,
+              clickableElement?.dataset?.image,
+              clickableElement?.dataset?.src,
+              image.dataset.fullImage,
+              image.dataset.imageUrl,
+              image.dataset.image,
+              image.dataset.src
+            ];
+
+            if (
+              clickableElement?.tagName === 'A' &&
+              clickableElement.href &&
+              !clickableElement.href.includes('/products/')
+            ) {
+              possibleUrls.push(clickableElement.href);
+            }
+
+            if (image.srcset) {
+              const srcsetImages = image.srcset
+                .split(',')
+                .map(function (item) {
+                  return item.trim().split(' ')[0];
+                })
+                .filter(Boolean);
+
+              if (srcsetImages.length) {
+                possibleUrls.push(
+                  srcsetImages[srcsetImages.length - 1]
+                );
+              }
+            }
+
+            possibleUrls.push(image.currentSrc);
+            possibleUrls.push(image.src);
+
+            const selectedUrl = possibleUrls.find(
+              function (url) {
+                return (
+                  typeof url === 'string' &&
+                  url.trim() !== ''
+                );
+              }
+            );
+
+            return getLargeShopifyImage(selectedUrl);
+          }
+
+          /*
+           * Encuentra el contenedor donde están
+           * la imagen grande y las miniaturas.
+           */
+          function findGallery(clickedImage) {
+            let element = clickedImage.parentElement;
+
+            const clickedDimensions =
+              clickedImage.getBoundingClientRect();
+
+            const clickedArea =
+              clickedDimensions.width *
+              clickedDimensions.height;
+
+            for (
+              let level = 0;
+              element && level < 10;
+              level++
+            ) {
+              const images = Array.from(
+                element.querySelectorAll('img')
+              ).filter(function (image) {
+                const dimensions =
+                  image.getBoundingClientRect();
+
+                return (
+                  dimensions.width > 0 &&
+                  dimensions.height > 0
+                );
+              });
+
+              if (images.length >= 2) {
+                const largestArea = Math.max.apply(
+                  null,
+                  images.map(function (image) {
+                    const dimensions =
+                      image.getBoundingClientRect();
+
+                    return (
+                      dimensions.width *
+                      dimensions.height
+                    );
+                  })
+                );
+
+                if (largestArea > clickedArea * 2.5) {
+                  return element;
+                }
+              }
+
+              element = element.parentElement;
+            }
+
+            return null;
+          }
+
+          /*
+           * Escucha el clic sobre cualquier
+           * miniatura de la página de producto.
+           */
+          document.addEventListener(
+            'click',
+            function (event) {
+              const clickedImage =
+                event.target.closest('img');
+
+              if (!clickedImage) return;
+
+              const clickedDimensions =
+                clickedImage.getBoundingClientRect();
+
+              /*
+               * Evita que se active al presionar
+               * directamente la imagen principal.
+               */
+              if (
+                clickedDimensions.width > 230 ||
+                clickedDimensions.height > 230
+              ) {
+                return;
+              }
+
+              const gallery = findGallery(clickedImage);
+
+              if (!gallery) return;
+
+              const galleryImages = Array.from(
+                gallery.querySelectorAll('img')
+              ).filter(function (image) {
+                const dimensions =
+                  image.getBoundingClientRect();
+
+                return (
+                  image !== clickedImage &&
+                  dimensions.width > 0 &&
+                  dimensions.height > 0
+                );
+              });
+
+              if (!galleryImages.length) return;
+
+              /*
+               * La imagen con mayor tamaño visible
+               * se considera la imagen principal.
+               */
+              galleryImages.sort(
+                function (firstImage, secondImage) {
+                  const firstDimensions =
+                    firstImage.getBoundingClientRect();
+
+                  const secondDimensions =
+                    secondImage.getBoundingClientRect();
+
+                  const firstArea =
+                    firstDimensions.width *
+                    firstDimensions.height;
+
+                  const secondArea =
+                    secondDimensions.width *
+                    secondDimensions.height;
+
+                  return secondArea - firstArea;
+                }
+              );
+
+              const mainImage = galleryImages[0];
+
+              const newImageUrl =
+                getThumbnailImageUrl(clickedImage);
+
+              if (!mainImage || !newImageUrl) return;
+
+              const mainDimensions =
+                mainImage.getBoundingClientRect();
+
+              const mainArea =
+                mainDimensions.width *
+                mainDimensions.height;
+
+              const thumbnailArea =
+                clickedDimensions.width *
+                clickedDimensions.height;
+
+              if (mainArea < thumbnailArea * 2.5) return;
+
+              event.preventDefault();
+
+              mainImage.classList.add(
+                'js-product-gallery-main'
+              );
+
+              mainImage.style.opacity = '0.35';
+
+              const preloadedImage = new Image();
+
+              preloadedImage.onload = function () {
+                /*
+                 * Actualiza las etiquetas source
+                 * cuando se utiliza <picture>.
+                 */
+                const picture =
+                  mainImage.closest('picture');
+
+                if (picture) {
+                  picture
+                    .querySelectorAll('source')
+                    .forEach(function (source) {
+                      source.srcset = newImageUrl;
+                    });
+                }
+
+                mainImage.src = newImageUrl;
+                mainImage.srcset = newImageUrl;
+
+                mainImage.alt =
+                  clickedImage.alt ||
+                  mainImage.alt;
+
+                /*
+                 * Actualiza el enlace de zoom.
+                 */
+                const mainImageLink =
+                  mainImage.closest('a');
+
+                if (mainImageLink) {
+                  mainImageLink.href = newImageUrl;
+                }
+
+                /*
+                 * Marca la miniatura activa.
+                 */
+                gallery
+                  .querySelectorAll(
+                    '.js-product-thumb-active'
+                  )
+                  .forEach(function (thumbnail) {
+                    thumbnail.classList.remove(
+                      'js-product-thumb-active'
+                    );
+                  });
+
+                const thumbnailContainer =
+                  clickedImage.closest(
+                    'button, a, [class*="thumbnail"], [class*="thumb"]'
+                  ) || clickedImage.parentElement;
+
+                if (thumbnailContainer) {
+                  thumbnailContainer.classList.add(
+                    'js-product-thumb-active'
+                  );
+                }
+
+                mainImage.style.opacity = '1';
+              };
+
+              preloadedImage.onerror = function () {
+                mainImage.style.opacity = '1';
+              };
+
+              preloadedImage.src = newImageUrl;
+            }
+          );
+        });
+      </script>
+    {% endif %}
+
+    <!-- VIDEOS AUTOMÁTICOS DE 5 SEGUNDOS -->
+    <style>
+      video[data-ga-preview="true"] {
+        display: block;
+        width: 100%;
+        cursor: pointer;
+        object-fit: cover;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+      }
+
+      video[data-ga-preview="true"]::-webkit-media-controls {
+        display: none !important;
+      }
+
+      video[data-ga-preview="true"]::-webkit-media-controls-panel {
+        display: none !important;
+      }
+
+      video[data-ga-preview="true"]::-webkit-media-controls-download-button {
+        display: none !important;
+      }
+
+      video[data-ga-preview="true"]::-internal-media-controls-download-button {
+        display: none !important;
+      }
+    </style>
+
+    <script>
+      document.addEventListener(
+        'DOMContentLoaded',
+        function () {
+          const GLOBAL_VIDEO_CONFIG = {
+            previewDuration: 5,
+            sampleCount: 18,
+            canvasWidth: 128,
+            canvasHeight: 72,
+
+            /*
+             * Se aplica a todos los videos.
+             *
+             * Para excluir un video agrega:
+             * data-video-completo="true"
+             */
+            selector:
+              'video:not([data-video-completo="true"])'
+          };
+
+          const analysisQueue = [];
+          let analysisRunning = false;
+
+          /*
+           * Prepara los videos existentes.
+           */
+          document
+            .querySelectorAll(
+              GLOBAL_VIDEO_CONFIG.selector
+            )
+            .forEach(function (video) {
+              prepareGlobalVideo(video);
+            });
+
+          /*
+           * Detecta videos cargados posteriormente
+           * por Shopify, sliders o aplicaciones.
+           */
+          const videoObserver = new MutationObserver(
+            function (mutations) {
+              mutations.forEach(function (mutation) {
+                mutation.addedNodes.forEach(
+                  function (node) {
+                    if (!(node instanceof Element)) {
+                      return;
+                    }
+
+                    if (
+                      node.matches &&
+                      node.matches(
+                        GLOBAL_VIDEO_CONFIG.selector
+                      )
+                    ) {
+                      prepareGlobalVideo(node);
+                    }
+
+                    if (node.querySelectorAll) {
+                      node
+                        .querySelectorAll(
+                          GLOBAL_VIDEO_CONFIG.selector
+                        )
+                        .forEach(function (video) {
+                          prepareGlobalVideo(video);
+                        });
+                    }
+                  }
+                );
+              });
+            }
+          );
+
+          videoObserver.observe(document.body, {
+            childList: true,
+            subtree: true
+          });
+
+          /*
+           * Configuración principal del video.
+           */
+          function prepareGlobalVideo(video) {
+            if (
+              !video ||
+              video.dataset.gaPreview === 'true'
+            ) {
+              return;
+            }
+
+            video.dataset.gaPreview = 'true';
+
+            /*
+             * Quita controles, descarga,
+             * Picture in Picture y reproducción remota.
+             */
+            video.removeAttribute('controls');
+            video.controls = false;
+
+            video.setAttribute(
+              'controlslist',
+              'nodownload noplaybackrate noremoteplayback'
+            );
+
+            video.setAttribute(
+              'disablepictureinpicture',
+              ''
+            );
+
+            video.setAttribute(
+              'disableremoteplayback',
+              ''
+            );
+
+            video.disablePictureInPicture = true;
+            video.disableRemotePlayback = true;
+
+            /*
+             * Reproducción automática silenciosa.
+             */
+            video.muted = true;
+            video.defaultMuted = true;
+            video.autoplay = true;
+            video.loop = false;
+
+            video.setAttribute('muted', '');
+            video.setAttribute('autoplay', '');
+            video.setAttribute('playsinline', '');
+            video.setAttribute(
+              'webkit-playsinline',
+              ''
+            );
+
+            video.preload = 'metadata';
+            video.draggable = false;
+            video.tabIndex = 0;
+
+            video.setAttribute(
+              'aria-label',
+              'Video de producto. Presiona para pausar o reproducir.'
+            );
+
+            /*
+             * Evita el menú de clic derecho.
+             */
+            video.addEventListener(
+              'contextmenu',
+              function (event) {
+                event.preventDefault();
+              }
+            );
+
+            /*
+             * Evita arrastrar el archivo.
+             */
+            video.addEventListener(
+              'dragstart',
+              function (event) {
+                event.preventDefault();
+              }
+            );
+
+            /*
+             * Pausa o reproduce al tocar el video.
+             */
+            video.addEventListener(
+              'click',
+              function () {
+                toggleVideoPlayback(video);
+              }
+            );
+
+            /*
+             * Permite usar Enter o espacio.
+             */
+            video.addEventListener(
+              'keydown',
+              function (event) {
+                if (
+                  event.key !== 'Enter' &&
+                  event.key !== ' '
+                ) {
+                  return;
+                }
+
+                event.preventDefault();
+                toggleVideoPlayback(video);
+              }
+            );
+
+            /*
+             * Repite únicamente el segmento
+             * seleccionado de 5 segundos.
+             */
+            video.addEventListener(
+              'timeupdate',
+              function () {
+                keepVideoInsidePreview(video);
+              }
+            );
+
+            /*
+             * Evita que se reproduzcan segundos
+             * fuera del tramo seleccionado.
+             */
+            video.addEventListener(
+              'seeking',
+              function () {
+                preventSeekingOutsidePreview(video);
+              }
+            );
+
+            const startVideo = function () {
+              if (
+                !Number.isFinite(video.duration) ||
+                video.duration <= 0
+              ) {
+                return;
+              }
+
+              /*
+               * Primero utiliza el centro del video
+               * para que se reproduzca inmediatamente.
+               */
+              const initialStart =
+                getFallbackStart(
+                  video.duration,
+                  GLOBAL_VIDEO_CONFIG.previewDuration
+                );
+
+              applyPreviewRange(
+                video,
+                initialStart,
+                GLOBAL_VIDEO_CONFIG.previewDuration
+              );
+
+              safePlay(video);
+
+              /*
+               * Después analiza el video y busca
+               * automáticamente el mejor tramo.
+               */
+              enqueueVideoAnalysis(video);
+            };
+
+            if (
+              video.readyState >= 1 &&
+              Number.isFinite(video.duration)
+            ) {
+              startVideo();
+            } else {
+              video.addEventListener(
+                'loadedmetadata',
+                startVideo,
+                { once: true }
+              );
+            }
+          }
+
+          /*
+           * Agrega el video a una cola para evitar
+           * analizar muchos videos al mismo tiempo.
+           */
+          function enqueueVideoAnalysis(video) {
+            if (
+              video.dataset.gaAnalysisQueued ===
+              'true'
+            ) {
+              return;
+            }
+
+            video.dataset.gaAnalysisQueued = 'true';
+            analysisQueue.push(video);
+
+            processAnalysisQueue();
+          }
+
+          async function processAnalysisQueue() {
+            if (analysisRunning) return;
+
+            analysisRunning = true;
+
+            while (analysisQueue.length) {
+              const video = analysisQueue.shift();
+
+              if (
+                !video ||
+                !document.documentElement.contains(
+                  video
+                )
+              ) {
+                continue;
+              }
+
+              try {
+                const bestStart =
+                  await findBestProductSegment(
+                    video,
+                    GLOBAL_VIDEO_CONFIG
+                  );
+
+                applyPreviewRange(
+                  video,
+                  bestStart,
+                  GLOBAL_VIDEO_CONFIG.previewDuration
+                );
+
+                safePlay(video);
+              } catch (error) {
+                /*
+                 * Si el navegador no permite analizarlo,
+                 * conserva los 5 segundos centrales.
+                 */
+                const fallbackStart =
+                  getFallbackStart(
+                    video.duration,
+                    GLOBAL_VIDEO_CONFIG.previewDuration
+                  );
+
+                applyPreviewRange(
+                  video,
+                  fallbackStart,
+                  GLOBAL_VIDEO_CONFIG.previewDuration
+                );
+
+                safePlay(video);
+              }
+
+              video.dataset.gaAnalysisComplete =
+                'true';
+            }
+
+            analysisRunning = false;
+          }
+
+          /*
+           * Aplica el inicio y final del preview.
+           */
+          function applyPreviewRange(
+            video,
+            requestedStart,
+            previewDuration
+          ) {
+            if (
+              !Number.isFinite(video.duration) ||
+              video.duration <= 0
+            ) {
+              return;
+            }
+
+            const maximumStart = Math.max(
+              0,
+              video.duration - previewDuration
+            );
+
+            const previewStart = clamp(
+              requestedStart,
+              0,
+              maximumStart
+            );
+
+            const previewEnd = Math.min(
+              video.duration,
+              previewStart + previewDuration
+            );
+
+            video.dataset.gaPreviewStart =
+              String(previewStart);
+
+            video.dataset.gaPreviewEnd =
+              String(previewEnd);
+
+            try {
+              video.currentTime = previewStart;
+            } catch (error) {
+              /*
+               * Algunos navegadores pueden demorar
+               * en aceptar el cambio de tiempo.
+               */
+            }
+          }
+
+          /*
+           * Mantiene el video dentro de los
+           * 5 segundos seleccionados.
+           */
+          function keepVideoInsidePreview(video) {
+            const previewStart = Number(
+              video.dataset.gaPreviewStart
+            );
+
+            const previewEnd = Number(
+              video.dataset.gaPreviewEnd
+            );
+
+            if (
+              !Number.isFinite(previewStart) ||
+              !Number.isFinite(previewEnd)
+            ) {
+              return;
+            }
+
+            if (
+              video.currentTime >=
+              previewEnd - 0.08
+            ) {
+              try {
+                video.currentTime = previewStart;
+              } catch (error) {
+                return;
+              }
+
+              if (!video.paused) {
+                safePlay(video);
+              }
+            }
+          }
+
+          /*
+           * Evita saltar hacia partes del video
+           * que estén fuera del preview.
+           */
+          function preventSeekingOutsidePreview(
+            video
+          ) {
+            const previewStart = Number(
+              video.dataset.gaPreviewStart
+            );
+
+            const previewEnd = Number(
+              video.dataset.gaPreviewEnd
+            );
+
+            if (
+              !Number.isFinite(previewStart) ||
+              !Number.isFinite(previewEnd)
+            ) {
+              return;
+            }
+
+            if (
+              video.currentTime <
+                previewStart - 0.15 ||
+              video.currentTime >
+                previewEnd + 0.15
+            ) {
+              try {
+                video.currentTime = previewStart;
+              } catch (error) {
+                /*
+                 * No realiza ninguna acción
+                 * si el navegador bloquea el cambio.
+                 */
+              }
+            }
+          }
+
+          function toggleVideoPlayback(video) {
+            if (video.paused) {
+              const previewStart = Number(
+                video.dataset.gaPreviewStart
+              );
+
+              const previewEnd = Number(
+                video.dataset.gaPreviewEnd
+              );
+
+              if (
+                Number.isFinite(previewStart) &&
+                Number.isFinite(previewEnd) &&
+                (
+                  video.currentTime <
+                    previewStart ||
+                  video.currentTime >=
+                    previewEnd
+                )
+              ) {
+                try {
+                  video.currentTime = previewStart;
+                } catch (error) {
+                  /*
+                   * Mantiene el tiempo actual.
+                   */
+                }
+              }
+
+              safePlay(video);
+            } else {
+              video.pause();
+            }
+          }
+
+          function safePlay(video) {
+            const playPromise = video.play();
+
+            if (
+              playPromise &&
+              typeof playPromise.catch ===
+                'function'
+            ) {
+              playPromise.catch(function () {
+                /*
+                 * Algunos navegadores bloquean
+                 * la reproducción automática.
+                 * El usuario puede tocar el video.
+                 */
+              });
+            }
+          }
+
+          /*
+           * Analiza fotogramas del video y busca
+           * el tramo más claro, nítido y detallado.
+           */
+          async function findBestProductSegment(
+            originalVideo,
+            config
+          ) {
+            const sourceUrl =
+              getVideoSource(originalVideo);
+
+            if (!sourceUrl) {
+              throw new Error(
+                'No se encontró la URL del video.'
+              );
+            }
+
+            const analyzerVideo =
+              document.createElement('video');
+
+            analyzerVideo.crossOrigin =
+              'anonymous';
+
+            analyzerVideo.muted = true;
+            analyzerVideo.defaultMuted = true;
+            analyzerVideo.playsInline = true;
+            analyzerVideo.preload = 'auto';
+
+            analyzerVideo.setAttribute(
+              'playsinline',
+              ''
+            );
+
+            analyzerVideo.style.position =
+              'fixed';
+
+            analyzerVideo.style.left =
+              '-9999px';
+
+            analyzerVideo.style.top =
+              '-9999px';
+
+            analyzerVideo.style.width = '1px';
+            analyzerVideo.style.height = '1px';
+            analyzerVideo.style.opacity = '0';
+            analyzerVideo.style.pointerEvents =
+              'none';
+
+            document.body.appendChild(
+              analyzerVideo
+            );
+
+            try {
+              analyzerVideo.src = sourceUrl;
+              analyzerVideo.load();
+
+              await waitForMetadata(
+                analyzerVideo
+              );
+
+              const duration =
+                analyzerVideo.duration;
+
+              if (
+                !Number.isFinite(duration) ||
+                duration <= 0
+              ) {
+                throw new Error(
+                  'Duración del video no válida.'
+                );
+              }
+
+              if (
+                duration <= config.previewDuration
+              ) {
+                return 0;
+              }
+
+              const canvas =
+                document.createElement('canvas');
+
+              canvas.width = config.canvasWidth;
+              canvas.height =
+                config.canvasHeight;
+
+              const context =
+                canvas.getContext('2d', {
+                  willReadFrequently: true
+                });
+
+              if (!context) {
+                throw new Error(
+                  'No se pudo analizar el video.'
+                );
+              }
+
+              const sampleTotal = Math.min(
+                config.sampleCount,
+                Math.max(
+                  8,
+                  Math.floor(duration)
+                )
+              );
+
+              const safeBeginning = Math.min(
+                0.5,
+                duration * 0.05
+              );
+
+              const safeEnding = Math.max(
+                safeBeginning,
+                duration - safeBeginning
+              );
+
+              const availableDuration =
+                safeEnding - safeBeginning;
+
+              const results = [];
+
+              for (
+                let index = 0;
+                index < sampleTotal;
+                index++
+              ) {
+                const progress =
+                  sampleTotal === 1
+                    ? 0
+                    : index /
+                      (sampleTotal - 1);
+
+                const sampleTime =
+                  safeBeginning +
+                  availableDuration *
+                    progress;
+
+                await seekVideo(
+                  analyzerVideo,
+                  sampleTime
+                );
+
+                context.drawImage(
+                  analyzerVideo,
+                  0,
+                  0,
+                  canvas.width,
+                  canvas.height
+                );
+
+                const frame =
+                  context.getImageData(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                  );
+
+                results.push({
+                  time: sampleTime,
+                  score: scoreFrame(
+                    frame.data,
+                    canvas.width,
+                    canvas.height
+                  )
+                });
+              }
+
+              return selectBestWindow(
+                results,
+                duration,
+                config.previewDuration
+              );
+            } finally {
+              analyzerVideo.pause();
+              analyzerVideo.removeAttribute(
+                'src'
+              );
+
+              try {
+                analyzerVideo.load();
+              } catch (error) {
+                /*
+                 * El video ya fue eliminado.
+                 */
+              }
+
+              analyzerVideo.remove();
+            }
+          }
+
+          /*
+           * Busca la fuente principal del video.
+           */
+          function getVideoSource(video) {
+            if (video.currentSrc) {
+              return video.currentSrc;
+            }
+
+            if (video.src) {
+              return video.src;
+            }
+
+            const sourceElement =
+              video.querySelector('source');
+
+            if (sourceElement) {
+              return (
+                sourceElement.currentSrc ||
+                sourceElement.src ||
+                sourceElement.getAttribute(
+                  'src'
+                )
+              );
+            }
+
+            return '';
+          }
+
+          /*
+           * Selecciona la ventana de 5 segundos
+           * con la mejor puntuación promedio.
+           */
+          function selectBestWindow(
+            results,
+            duration,
+            previewDuration
+          ) {
+            if (!results.length) {
+              return getFallbackStart(
+                duration,
+                previewDuration
+              );
+            }
+
+            const maximumStart = Math.max(
+              0,
+              duration - previewDuration
+            );
+
+            let bestStart =
+              getFallbackStart(
+                duration,
+                previewDuration
+              );
+
+            let bestScore = -Infinity;
+
+            results.forEach(function (result) {
+              const candidateStart = clamp(
+                result.time -
+                  previewDuration / 2,
+                0,
+                maximumStart
+              );
+
+              const candidateEnd =
+                candidateStart +
+                previewDuration;
+
+              const framesInsideWindow =
+                results.filter(
+                  function (frame) {
+                    return (
+                      frame.time >=
+                        candidateStart &&
+                      frame.time <=
+                        candidateEnd
+                    );
+                  }
+                );
+
+              if (!framesInsideWindow.length) {
+                return;
+              }
+
+              const averageScore =
+                framesInsideWindow.reduce(
+                  function (
+                    total,
+                    frame
+                  ) {
+                    return (
+                      total + frame.score
+                    );
+                  },
+                  0
+                ) /
+                framesInsideWindow.length;
+
+              /*
+               * Premia ventanas que mantengan
+               * buena calidad durante varios frames.
+               */
+              const minimumScore =
+                Math.min.apply(
+                  null,
+                  framesInsideWindow.map(
+                    function (frame) {
+                      return frame.score;
+                    }
+                  )
+                );
+
+              /*
+               * Penaliza introducciones y cierres.
+               */
+              let edgePenalty = 0;
+
+              if (candidateStart < 0.7) {
+                edgePenalty += 10;
+              }
+
+              if (
+                candidateEnd >
+                duration - 0.7
+              ) {
+                edgePenalty += 10;
+              }
+
+              const finalScore =
+                averageScore * 0.8 +
+                minimumScore * 0.2 -
+                edgePenalty;
+
+              if (finalScore > bestScore) {
+                bestScore = finalScore;
+                bestStart = candidateStart;
+              }
+            });
+
+            return bestStart;
+          }
+
+          /*
+           * Puntúa brillo, contraste, detalle,
+           * nitidez y contenido central.
+           */
+          function scoreFrame(
+            pixels,
+            width,
+            height
+          ) {
+            let brightnessTotal = 0;
+            let brightnessSquaredTotal = 0;
+            let saturationTotal = 0;
+            let edgeTotal = 0;
+            let centerDetailTotal = 0;
+            let analyzedPixels = 0;
+            let darkPixels = 0;
+            let brightPixels = 0;
+
+            const step = 3;
+
+            for (
+              let y = 1;
+              y < height - 1;
+              y += step
+            ) {
+              for (
+                let x = 1;
+                x < width - 1;
+                x += step
+              ) {
+                const pixelIndex =
+                  (y * width + x) * 4;
+
+                const rightIndex =
+                  (y * width + x + 1) * 4;
+
+                const bottomIndex =
+                  ((y + 1) * width + x) * 4;
+
+                const red =
+                  pixels[pixelIndex];
+
+                const green =
+                  pixels[pixelIndex + 1];
+
+                const blue =
+                  pixels[pixelIndex + 2];
+
+                const brightness =
+                  red * 0.299 +
+                  green * 0.587 +
+                  blue * 0.114;
+
+                const maximum = Math.max(
+                  red,
+                  green,
+                  blue
+                );
+
+                const minimum = Math.min(
+                  red,
+                  green,
+                  blue
+                );
+
+                const saturation =
+                  maximum - minimum;
+
+                const horizontalDifference =
+                  Math.abs(
+                    red -
+                      pixels[rightIndex]
+                  ) +
+                  Math.abs(
+                    green -
+                      pixels[rightIndex + 1]
+                  ) +
+                  Math.abs(
+                    blue -
+                      pixels[rightIndex + 2]
+                  );
+
+                const verticalDifference =
+                  Math.abs(
+                    red -
+                      pixels[bottomIndex]
+                  ) +
+                  Math.abs(
+                    green -
+                      pixels[bottomIndex + 1]
+                  ) +
+                  Math.abs(
+                    blue -
+                      pixels[bottomIndex + 2]
+                  );
+
+                const detail =
+                  horizontalDifference +
+                  verticalDifference;
+
+                brightnessTotal += brightness;
+
+                brightnessSquaredTotal +=
+                  brightness * brightness;
+
+                saturationTotal += saturation;
+                edgeTotal += detail;
+
+                /*
+                 * Da prioridad al centro, donde
+                 * normalmente está el producto.
+                 */
+                const insideCenter =
+                  x > width * 0.2 &&
+                  x < width * 0.8 &&
+                  y > height * 0.15 &&
+                  y < height * 0.85;
+
+                if (insideCenter) {
+                  centerDetailTotal += detail;
+                }
+
+                if (brightness < 25) {
+                  darkPixels++;
+                }
+
+                if (brightness > 238) {
+                  brightPixels++;
+                }
+
+                analyzedPixels++;
+              }
+            }
+
+            if (!analyzedPixels) return 0;
+
+            const averageBrightness =
+              brightnessTotal /
+              analyzedPixels;
+
+            const brightnessVariance =
+              brightnessSquaredTotal /
+                analyzedPixels -
+              averageBrightness *
+                averageBrightness;
+
+            const averageSaturation =
+              saturationTotal /
+              analyzedPixels;
+
+            const averageEdges =
+              edgeTotal /
+              analyzedPixels;
+
+            const centerDetail =
+              centerDetailTotal /
+              analyzedPixels;
+
+            const exposureScore = Math.max(
+              0,
+              100 -
+                Math.abs(
+                  averageBrightness - 145
+                ) *
+                  0.7
+            );
+
+            const contrastScore =
+              Math.sqrt(
+                Math.max(
+                  0,
+                  brightnessVariance
+                )
+              );
+
+            const darkRatio =
+              darkPixels /
+              analyzedPixels;
+
+            const brightRatio =
+              brightPixels /
+              analyzedPixels;
+
+            const emptyFramePenalty =
+              (
+                darkRatio > 0.75 ||
+                brightRatio > 0.75
+              )
+                ? 35
+                : 0;
+
+            return (
+              averageEdges * 0.42 +
+              centerDetail * 0.28 +
+              contrastScore * 0.65 +
+              averageSaturation * 0.18 +
+              exposureScore * 0.35 -
+              emptyFramePenalty
+            );
+          }
+
+          function waitForMetadata(video) {
+            return new Promise(
+              function (resolve, reject) {
+                if (
+                  video.readyState >= 1 &&
+                  Number.isFinite(
+                    video.duration
+                  )
+                ) {
+                  resolve();
+                  return;
+                }
+
+                const timeout =
+                  window.setTimeout(
+                    function () {
+                      reject(
+                        new Error(
+                          'El video tardó demasiado en cargar.'
+                        )
+                      );
+                    },
+                    12000
+                  );
+
+                video.addEventListener(
+                  'loadedmetadata',
+                  function () {
+                    window.clearTimeout(
+                      timeout
+                    );
+
+                    resolve();
+                  },
+                  { once: true }
+                );
+
+                video.addEventListener(
+                  'error',
+                  function () {
+                    window.clearTimeout(
+                      timeout
+                    );
+
+                    reject(
+                      new Error(
+                        'No se pudo cargar el video.'
+                      )
+                    );
+                  },
+                  { once: true }
+                );
+              }
+            );
+          }
+
+          function seekVideo(video, time) {
+            return new Promise(
+              function (resolve, reject) {
+                if (
+                  Math.abs(
+                    video.currentTime - time
+                  ) < 0.03
+                ) {
+                  resolve();
+                  return;
+                }
+
+                let completed = false;
+
+                const timeout =
+                  window.setTimeout(
+                    function () {
+                      if (completed) return;
+
+                      completed = true;
+
+                      reject(
+                        new Error(
+                          'No se pudo analizar el fotograma.'
+                        )
+                      );
+                    },
+                    5000
+                  );
+
+                const handleSeeked =
+                  function () {
+                    if (completed) return;
+
+                    completed = true;
+
+                    window.clearTimeout(
+                      timeout
+                    );
+
+                    resolve();
+                  };
+
+                video.addEventListener(
+                  'seeked',
+                  handleSeeked,
+                  { once: true }
+                );
+
+                try {
+                  video.currentTime = clamp(
+                    time,
+                    0,
+                    Math.max(
+                      0,
+                      video.duration - 0.05
+                    )
+                  );
+                } catch (error) {
+                  window.clearTimeout(
+                    timeout
+                  );
+
+                  reject(error);
+                }
+              }
+            );
+          }
+
+          /*
+           * Si no se puede analizar el video,
+           * utiliza los 5 segundos centrales.
+           */
+          function getFallbackStart(
+            duration,
+            previewDuration
+          ) {
+            if (
+              !Number.isFinite(duration) ||
+              duration <= previewDuration
+            ) {
+              return 0;
+            }
+
+            return Math.max(
+              0,
+              (duration -
+                previewDuration) /
+                2
+            );
+          }
+
+          function clamp(
+            number,
+            minimum,
+            maximum
+          ) {
+            return Math.min(
+              Math.max(number, minimum),
+              maximum
+            );
+          }
+        }
+      );
+    </script>
+    {% render 'cart-drawer' %}
+    <script>
+(() => {
+
+  /* =========================================
+     1. DEJAR SOLO PAGA AL RECIBIR
+  ========================================= */
+
+  const fixCartFooter = () => {
+    const drawer =
+      document.querySelector('#CartDrawer');
+    if (!drawer) return;
+    const footer =
+      drawer.querySelector(
+        '.cart-drawer__footer'
+      );
+    if (!footer) return;
+    // Masad COD ya inyecta su botón funcional. El código anterior añadía un
+    // segundo botón que disparaba EasySell y duplicaba el flujo.
+    footer.querySelectorAll('.ga-cod-only').forEach((button) => button.remove());
+
+  };
+
+
+  /* =========================================
+     2. CERRAR CARRITO ANTES DE ABRIR EASySELL
+  ========================================= */
+
+  document.addEventListener(
+    'click',
+    (event) => {
+
+      const button = event.target.closest('#CartDrawer .ga-cod-only');
+
+      if (!button) return;
+
+
+      /*
+      Este segundo click es el que
+      dejamos pasar a EasySell.
+      */
+      if (
+        button.dataset
+          .easysellReady === 'true'
+      ) {
+
+        delete button.dataset
+          .easysellReady;
+
+        return;
+      }
+
+
+      /*
+      Primer click:
+      detenemos EasySell por un momento.
+      */
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+
+      const drawer =
+        document.querySelector(
+          '#CartDrawer'
+        );
+
+
+      /* CERRAR EL DRAWER */
+      if (drawer) {
+
+        if (
+          typeof drawer.close ===
+          'function'
+        ) {
+
+          if (drawer.open) {
+            drawer.close();
+          }
+
+        } else {
+
+          drawer.removeAttribute(
+            'open'
+          );
+
+          drawer.classList.remove(
+            'is-open'
+          );
+
+        }
+
+      }
+
+
+      /*
+      Esperamos a que desaparezca
+      completamente el backdrop del carrito.
+      Después dejamos que EasySell abra
+      su formulario normalmente.
+      */
+      setTimeout(() => {
+
+        button.dataset
+          .easysellReady = 'true';
+
+        button.click();
+
+      }, 180);
+
+    },
+    true
+  );
+
+
+  /* =========================================
+     3. MANTENER EL FOOTER CORRECTO
+  ========================================= */
+
+  document.addEventListener(
+    'DOMContentLoaded',
+    fixCartFooter
+  );
+
+  document.addEventListener(
+    'cart:updated',
+    () => {
+      setTimeout(
+        fixCartFooter,
+        40
+      );
+    }
+  );
+
+  document.addEventListener(
+    'cart:refresh',
+    () => {
+      setTimeout(
+        fixCartFooter,
+        40
+      );
+    }
+  );
+
+  document.addEventListener(
+    'ga:cart-rendered',
+    () => {
+      setTimeout(
+        fixCartFooter,
+        40
+      );
+    }
+  );
+
+
+  /* Si el carrito se reconstruye */
+  const observer =
+    new MutationObserver(() => {
+
+      fixCartFooter();
+
+    });
+
+  observer.observe(
+    document.body,
+    {
+      childList: true,
+      subtree: true
+    }
+  );
+
+
+  fixCartFooter();
+
+})();
+</script>
+
+<style>
+  #CartDrawer .ga-cod-only {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+
+    width: 100% !important;
+    min-height: 58px !important;
+    padding: 14px 20px !important;
+    margin: 0 !important;
+
+    color: #ffffff !important;
+    background: linear-gradient(
+      180deg,
+      #06495c 0%,
+      #15a9e5 100%
+    ) !important;
+
+    border: 0 !important;
+    border-radius: 14px !important;
+
+    font-size: 15px !important;
+    font-weight: 800 !important;
+
+    cursor: pointer !important;
+
+    box-shadow:
+      0 10px 24px rgba(10, 109, 145, 0.20) !important;
+  }
+</style>
+  </body>
+</html>

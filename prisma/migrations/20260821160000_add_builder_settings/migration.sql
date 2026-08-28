@@ -1,0 +1,3 @@
+ALTER TABLE "AppConfig" ADD COLUMN "formBuilderJson" TEXT NOT NULL DEFAULT '{}';
+ALTER TABLE "AppConfig" ADD COLUMN "salesToolsJson" TEXT NOT NULL DEFAULT '{}';
+ALTER TABLE "AppConfig" ADD COLUMN "integrationsJson" TEXT NOT NULL DEFAULT '{}';
