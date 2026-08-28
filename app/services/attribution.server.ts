@@ -11,6 +11,8 @@ export const ATTRIBUTION_KEYS = [
   "tt_adgroupid",
   "tt_creativeid",
   "ttclid",
+  "fbclid",
+  "referrer_url",
   "full_url",
   "shopify-cart-token",
 ] as const;
@@ -66,4 +68,62 @@ export function attributionOrderAttributes(value: string | null | undefined) {
   return ATTRIBUTION_KEYS.flatMap((key) => attribution[key]
     ? [{ key, value: attribution[key]!.slice(0, 255) }]
     : []);
+}
+
+export type MarketingPlatform = "META" | "TIKTOK";
+
+function hostname(value: string | undefined) {
+  if (!value) return "";
+  try { return new URL(value).hostname.toLowerCase(); } catch { return ""; }
+}
+
+function queryValue(value: string | undefined, key: string) {
+  if (!value) return "";
+  try { return new URL(value).searchParams.get(key)?.trim() ?? ""; } catch { return ""; }
+}
+
+export function detectMarketingPlatform(value: string | null | undefined): MarketingPlatform | null {
+  const attribution = parseAttribution(value);
+  const source = attribution.utm_source?.trim().toLowerCase() ?? "";
+  const referrerHost = hostname(attribution.referrer_url);
+  const landingTtclid = queryValue(attribution.full_url, "ttclid");
+  const landingFbclid = queryValue(attribution.full_url, "fbclid");
+
+  if (
+    source.includes("tiktok")
+    || Boolean(attribution.ttclid || landingTtclid)
+    || referrerHost === "tiktok.com"
+    || referrerHost.endsWith(".tiktok.com")
+  ) return "TIKTOK";
+
+  if (
+    ["meta", "facebook", "fb", "instagram", "ig"].includes(source)
+    || Boolean(attribution.fbclid || landingFbclid)
+    || referrerHost === "facebook.com"
+    || referrerHost.endsWith(".facebook.com")
+    || referrerHost === "instagram.com"
+    || referrerHost.endsWith(".instagram.com")
+  ) return "META";
+
+  return null;
+}
+
+export function shopifyReferringSite(value: string | null | undefined) {
+  const attribution = parseAttribution(value);
+  const platform = detectMarketingPlatform(value);
+  const referrerHost = hostname(attribution.referrer_url);
+
+  if (platform === "TIKTOK") {
+    return referrerHost.includes("tiktok.com") ? attribution.referrer_url : "https://www.tiktok.com/";
+  }
+
+  if (platform === "META") {
+    const source = attribution.utm_source?.trim().toLowerCase() ?? "";
+    const isInstagram = source === "instagram" || source === "ig" || referrerHost.includes("instagram.com");
+    return isInstagram ? "https://www.instagram.com/" : "https://www.facebook.com/";
+  }
+
+  return attribution.referrer_url && /^https?:\/\//i.test(attribution.referrer_url)
+    ? attribution.referrer_url
+    : undefined;
 }

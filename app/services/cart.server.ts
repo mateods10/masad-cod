@@ -15,7 +15,12 @@ import {
 import { ensureShopData } from "./bootstrap.server";
 import { sendPurchaseConversions } from "./conversion-api.server";
 import { IP_BLOCKED_MESSAGE, registerCodAttempt } from "./fraud.server";
-import { attributionOrderAttributes, parseAttribution } from "./attribution.server";
+import {
+  attributionOrderAttributes,
+  detectMarketingPlatform,
+  parseAttribution,
+  shopifyReferringSite,
+} from "./attribution.server";
 
 export type AdminClient = {
   graphql: (query: string, options?: { variables?: Record<string, unknown> }) => Promise<Response>;
@@ -306,12 +311,14 @@ export async function createCodOrder(
     : shippingLabel;
   const reasons = JSON.parse(cart.riskReasonsJson) as string[];
   const attribution = parseAttribution(cart.attributionJson);
+  const marketingPlatform = detectMarketingPlatform(cart.attributionJson);
   const tags = ["GLOBAL_AURA_FORM", "COD", cart.shippingMethod === "AGENCY" ? "RETIRO_SERVIENTREGA" : "ENVIO_DOMICILIO"];
   if (cart.shippingMethod === "PRIORITY") tags.push("ENVIO_PRIORITARIO");
   const isRiskZone = result.analysis.zone.type !== "NONE";
   if (isRiskZone) tags.push("ZONA_DE_RIESGO", "OFRECER_AGENCIA_SERVIENTREGA");
   if (cart.riskScore >= 25) tags.push("REVISAR_RIESGO");
-  if (attribution.utm_source?.toLowerCase() === "tiktok" || attribution.ttclid) tags.push("ORIGEN_TIKTOK");
+  if (marketingPlatform === "TIKTOK") tags.push("ORIGEN_TIKTOK");
+  if (marketingPlatform === "META") tags.push("ORIGEN_META");
 
   const claimed = await db.cartSession.updateMany({
     where: { id: cart.id, status: { in: ["ACTIVE", "CLICKED"] }, orderId: null },
@@ -363,10 +370,11 @@ export async function createCodOrder(
             ],
             tags,
             sourceIdentifier: cart.id,
-            referringSite: payload.pageUrl,
+            referringSite: shopifyReferringSite(cart.attributionJson),
             note: [
               `Método de envío: ${shippingSummary}`,
               `Referencia: ${reference}`,
+              marketingPlatform ? `Plataforma de venta: ${marketingPlatform === "META" ? "Meta (Facebook/Instagram)" : "TikTok"}` : null,
               attribution.utm_source ? `Origen marketing: ${attribution.utm_source}${attribution.utm_medium ? ` / ${attribution.utm_medium}` : ""}` : null,
               attribution.utm_campaign ? `Campaña: ${attribution.utm_campaign}` : null,
               attribution.tt_campaignid ? `TikTok campaña: ${attribution.tt_campaignid}` : null,
@@ -389,6 +397,7 @@ export async function createCodOrder(
               { key: "Dirección", value: address },
               { key: "Referencia", value: reference },
               { key: "Correo electrónico", value: email },
+              { key: "Plataforma de venta", value: marketingPlatform === "META" ? "Meta (Facebook/Instagram)" : marketingPlatform === "TIKTOK" ? "TikTok" : "Sin identificar" },
               { key: "Método de envío", value: shippingSummary },
               { key: "Valor del envío", value: `$${shippingFee.toFixed(2)}` },
               { key: "Puntaje de riesgo", value: String(cart.riskScore) },

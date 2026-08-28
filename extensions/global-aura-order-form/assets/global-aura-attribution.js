@@ -5,7 +5,7 @@
   const attributionKey = "masad_marketing_attribution";
   const allowed = [
     "utm_source", "utm_medium", "utm_campaign", "utm_id", "utm_term", "utm_content",
-    "tt_campaignid", "tt_adgroupid", "tt_creativeid", "ttclid",
+    "tt_campaignid", "tt_adgroupid", "tt_creativeid", "ttclid", "fbclid",
   ];
   const sessionId = localStorage.getItem(sessionKey)
     || window.crypto?.randomUUID?.()
@@ -20,6 +20,12 @@
     const value = params.get(key);
     if (!attribution[key] && value) attribution[key] = value.slice(0, 255);
   });
+  if (!attribution.referrer_url && document.referrer) {
+    try {
+      const referrer = new URL(document.referrer);
+      if (referrer.hostname !== location.hostname) attribution.referrer_url = referrer.href.slice(0, 2000);
+    } catch { /* Ignore malformed browser referrers. */ }
+  }
   if (!attribution.full_url) attribution.full_url = location.href.slice(0, 2000);
   localStorage.setItem(attributionKey, JSON.stringify(attribution));
   window.GAMarketingAttribution = attribution;
