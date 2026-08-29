@@ -24,7 +24,7 @@ describe("Shopify and PosCake address", () => {
     });
   });
 
-  it("writes the complete province beside the city for PosCake without its one-letter code", () => {
+  it("sends city and full province as separate PosCake fields without the one-letter code", () => {
     expect(buildShopifyShippingAddress({
       fullName: "Betsabeth Pérez",
       phone: "+5939999905636",
@@ -32,26 +32,16 @@ describe("Shopify and PosCake address", () => {
       reference: "Centro comercial",
       city: "Quito",
       province: "PICHINCHA",
-    }, { fullProvinceInCity: true })).toEqual({
+    }, { fullProvinceForPosCake: true })).toEqual({
       firstName: "Betsabeth",
       lastName: "Pérez",
       phone: "+5939999905636",
       address1: "Av. Morán Valverde",
       address2: "Centro comercial",
-      city: "Quito Pichincha",
+      city: "Quito",
+      province: "Pichincha",
       countryCode: "EC",
     });
-  });
-
-  it("does not repeat Pichincha when the selected city already contains it", () => {
-    expect(buildShopifyShippingAddress({
-      fullName: "Andrea España",
-      phone: "+593995393511",
-      address: "Av. Principal",
-      reference: "Casa blanca",
-      city: "San Antonio de Pichincha",
-      province: "PICHINCHA",
-    }, { fullProvinceInCity: true }).city).toBe("San Antonio de Pichincha");
   });
 });
 

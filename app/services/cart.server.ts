@@ -229,30 +229,26 @@ export function buildShopifyShippingAddress(input: {
   reference: string;
   city: string;
   province: string;
-}, options: { fullProvinceInCity?: boolean } = {}) {
+}, options: { fullProvinceForPosCake?: boolean } = {}) {
   const { firstName, lastName } = splitFullName(input.fullName);
-  const fullProvinceInCity = options.fullProvinceInCity === true;
+  const fullProvinceForPosCake = options.fullProvinceForPosCake === true;
   const provinceLabel = input.province
     .trim()
     .toLocaleLowerCase("es-EC")
     .replace(/(^|[\s-])\p{L}/gu, (letter) => letter.toLocaleUpperCase("es-EC"));
-  const cityAlreadyIncludesProvince = normalizeText(input.city).includes(normalizeText(input.province));
-  const city = fullProvinceInCity && !cityAlreadyIncludesProvince
-    ? `${input.city.trim()} ${provinceLabel}`.trim()
-    : input.city;
   return {
     firstName,
     lastName,
     phone: input.phone,
     address1: input.address,
     address2: input.reference,
-    city,
+    city: input.city,
     // PosCake renders Shopify's Ecuador subdivision code (for example, "P")
-    // instead of its full label. Luminos can place the complete province next
-    // to the city and omit the abbreviated subdivision fields so the delivery
-    // address remains readable in PosCake. Other installations keep the
-    // original structured province fields.
-    ...(fullProvinceInCity ? {} : {
+    // instead of its full label. Luminos sends the complete province as a
+    // separate structured field and omits only the abbreviated code, allowing
+    // PosCake to recognize both city and province. Other installations keep
+    // the original province plus provinceCode representation.
+    ...(fullProvinceForPosCake ? { province: provinceLabel } : {
       province: input.province,
       provinceCode: provinceCode(input.province),
     }),
@@ -260,7 +256,7 @@ export function buildShopifyShippingAddress(input: {
   };
 }
 
-function posCakeFullProvinceInCity() {
+function posCakeFullProvinceForAddress() {
   return process.env.POSCAKE_FULL_PROVINCE_IN_CITY === "1";
 }
 
@@ -377,7 +373,7 @@ export async function createCodOrder(
               reference,
               city,
               province,
-            }, { fullProvinceInCity: posCakeFullProvinceInCity() }),
+            }, { fullProvinceForPosCake: posCakeFullProvinceForAddress() }),
             shippingLines: [
               {
                 title: shippingLabel,
@@ -499,20 +495,16 @@ export async function createAbandonedDraftOrder(admin: AdminClient, cart: CartSe
         phone: cart.phoneNormalized ?? undefined,
         address1: cart.address ?? undefined,
         address2: cart.reference ?? undefined,
-        city: cart.city && cart.province && posCakeFullProvinceInCity()
-          ? buildShopifyShippingAddress({
-              fullName: cart.fullName ?? "Cliente sin completar",
-              phone: cart.phoneNormalized ?? "",
-              address: cart.address ?? "",
-              reference: cart.reference ?? "",
-              city: cart.city,
-              province: cart.province,
-            }, { fullProvinceInCity: true }).city
-          : cart.city ?? undefined,
-        ...(posCakeFullProvinceInCity() ? {} : {
-          provinceCode: cart.province ? provinceCode(cart.province) : undefined,
-          province: cart.province ?? undefined,
-        }),
+        city: cart.city ?? undefined,
+        ...(posCakeFullProvinceForAddress() && cart.province
+          ? { province: cart.province
+              .trim()
+              .toLocaleLowerCase("es-EC")
+              .replace(/(^|[\s-])\p{L}/gu, (letter) => letter.toLocaleUpperCase("es-EC")) }
+          : {
+              provinceCode: cart.province ? provinceCode(cart.province) : undefined,
+              province: cart.province ?? undefined,
+            }),
         countryCode: "EC",
       }
     : undefined;
