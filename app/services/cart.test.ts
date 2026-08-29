@@ -1,6 +1,6 @@
 import type { CartSession } from "@prisma/client";
 import { describe, expect, it, vi } from "vitest";
-import { buildShopifyShippingAddress, createAbandonedDraftOrder } from "./cart.server";
+import { buildShopifyOrderLineItems, buildShopifyShippingAddress, createAbandonedDraftOrder } from "./cart.server";
 
 describe("Shopify and PosCake address", () => {
   it("sends the city and both province representations", () => {
@@ -42,6 +42,25 @@ describe("Shopify and PosCake address", () => {
       province: "Pichincha",
       countryCode: "EC",
     });
+  });
+});
+
+describe("Shopify and PosCake shipping workflow", () => {
+  it("marks every completed COD line as requiring physical shipping", () => {
+    expect(buildShopifyOrderLineItems([
+      {
+        variantId: "gid://shopify/ProductVariant/1",
+        quantity: 2,
+        properties: [{ name: "Opción", value: "Pack 2" }],
+      },
+    ])).toEqual([
+      {
+        variantId: "gid://shopify/ProductVariant/1",
+        quantity: 2,
+        properties: [{ name: "Opción", value: "Pack 2" }],
+        requiresShipping: true,
+      },
+    ]);
   });
 });
 

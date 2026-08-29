@@ -256,6 +256,18 @@ export function buildShopifyShippingAddress(input: {
   };
 }
 
+export function buildShopifyOrderLineItems(lines: CartLine[]) {
+  return lines.map((line) => ({
+    variantId: line.variantId,
+    quantity: line.quantity,
+    properties: line.properties,
+    // orderCreate defaults this field to false, even when variantId belongs
+    // to a physical product. PosCake needs a shippable order to create the
+    // normal fulfillment/tracking workflow that triggers Pancake messages.
+    requiresShipping: true,
+  }));
+}
+
 function posCakeFullProvinceForAddress() {
   return process.env.POSCAKE_FULL_PROVINCE_IN_CITY === "1";
 }
@@ -359,11 +371,7 @@ export async function createCodOrder(
             email,
             phone,
             financialStatus: "PENDING",
-            lineItems: result.analysis.lines.map((line) => ({
-              variantId: line.variantId,
-              quantity: line.quantity,
-              properties: line.properties,
-            })),
+            lineItems: buildShopifyOrderLineItems(result.analysis.lines),
             shippingAddress: buildShopifyShippingAddress({
               fullName,
               phone,
