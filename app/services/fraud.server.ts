@@ -29,17 +29,13 @@ export function hashClientIp(headers: Headers, shop: string) {
   return createHash("sha256").update(`masad-ip-v1:${secret}:${shop}:${ip}`).digest("base64url");
 }
 
-export async function isIpPermanentlyBlocked(shop: string, clientIpHash: string | null) {
-  if (!clientIpHash) return false;
-  return Boolean(await db.fraudIpBlock.findUnique({ where: { shop_clientIpHash: { shop, clientIpHash } }, select: { id: true } }));
+export function isFrequentCodActivity(attempts: number) {
+  return attempts >= IP_ATTEMPT_LIMIT;
 }
 
 export async function registerCodAttempt(shop: string, cartSessionId: string, clientIpHash: string | null) {
-  if (!clientIpHash) return { blocked: false, attempts: 0 };
+  if (!clientIpHash) return { flagged: false, attempts: 0 };
   return db.$transaction(async (tx) => {
-    const existingBlock = await tx.fraudIpBlock.findUnique({ where: { shop_clientIpHash: { shop, clientIpHash } } });
-    if (existingBlock) return { blocked: true, attempts: existingBlock.attemptCount };
-
     await tx.fraudIpAttempt.upsert({
       where: { cartSessionId },
       create: { shop, clientIpHash, cartSessionId },
@@ -48,16 +44,22 @@ export async function registerCodAttempt(shop: string, cartSessionId: string, cl
     const attempts = await tx.fraudIpAttempt.count({
       where: { shop, clientIpHash, createdAt: { gte: new Date(Date.now() - IP_ATTEMPT_WINDOW_MS) } },
     });
-    if (attempts < IP_ATTEMPT_LIMIT) return { blocked: false, attempts };
-
-    await tx.fraudIpBlock.create({
-      data: {
-        shop,
-        clientIpHash,
-        attemptCount: attempts,
-        reason: `${attempts} intentos de pedido COD en las últimas 24 horas. Bloqueo permanente automático.`,
-      },
-    });
-    return { blocked: true, attempts };
+    const flagged = isFrequentCodActivity(attempts);
+    if (flagged) {
+      await tx.fraudIpBlock.upsert({
+        where: { shop_clientIpHash: { shop, clientIpHash } },
+        create: {
+          shop,
+          clientIpHash,
+          attemptCount: attempts,
+          reason: `${attempts} pedidos COD desde la misma IP en las últimas 24 horas. Alerta sin bloqueo automático.`,
+        },
+        update: {
+          attemptCount: attempts,
+          reason: `${attempts} pedidos COD desde la misma IP en las últimas 24 horas. Alerta sin bloqueo automático.`,
+        },
+      });
+    }
+    return { flagged, attempts };
   });
 }

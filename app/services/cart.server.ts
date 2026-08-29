@@ -268,7 +268,7 @@ export async function createCodOrder(
   conversionContext?: ConversionRequestContext,
 ) {
   const result = await upsertCart(shop, admin, { ...payload, paymentMethod: "COD" });
-  const cart = result.cart;
+  let cart = result.cart;
   if (cart.orderId) return { orderId: cart.orderId, orderName: "Pedido existente", cart, duplicate: true };
 
   const fullName = required(cart.fullName, "el nombre completo");
@@ -298,21 +298,18 @@ export async function createCodOrder(
     throw new Error(IP_BLOCKED_MESSAGE);
   }
   const fraud = await registerCodAttempt(shop, cart.id, clientIpHash);
-  if (fraud.blocked) {
+  if (fraud.flagged) {
     const reasons = (() => {
       try { return JSON.parse(cart.riskReasonsJson) as string[]; } catch { return []; }
     })();
-    const reason = `FRAUDE_IP_BLOQUEADA: ${fraud.attempts} intentos COD en 24 horas. Bloqueo permanente.`;
-    await db.cartSession.update({
+    const reason = `POSIBLE_FRAUDE_POR_FRECUENCIA: ${fraud.attempts} pedidos COD desde la misma IP en 24 horas. Pedido permitido para revisión.`;
+    cart = await db.cartSession.update({
       where: { id: cart.id },
       data: {
-        status: "BLOCKED_FRAUD",
-        riskScore: 100,
+        riskScore: Math.max(cart.riskScore, 75),
         riskReasonsJson: JSON.stringify([...new Set([...reasons, reason])]),
-        sendAt: null,
       },
     });
-    throw new Error(IP_BLOCKED_MESSAGE);
   }
   const shippingFee = cart.shippingMethod === "PRIORITY" ? Number(result.config.priorityFee) : 0;
   const shippingLabel = cart.shippingMethod === "PRIORITY"
@@ -331,6 +328,7 @@ export async function createCodOrder(
   const isRiskZone = result.analysis.zone.type !== "NONE";
   if (isRiskZone) tags.push("ZONA_DE_RIESGO", "OFRECER_AGENCIA_SERVIENTREGA");
   if (cart.riskScore >= 25) tags.push("REVISAR_RIESGO");
+  if (fraud.flagged) tags.push("POSIBLE_FRAUDE_FRECUENCIA");
   if (marketingPlatform === "TIKTOK") tags.push("ORIGEN_TIKTOK");
   if (marketingPlatform === "META") tags.push("ORIGEN_META");
 

@@ -12,7 +12,7 @@ import { sendRecoveryViaPancake } from "../services/pancake.server";
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { admin, session } = await authenticate.admin(request);
   const config = await ensureShopData(session.shop);
-  const [active, sent, recovered, risky, drafted, blockedIps, customerBlocks, completedRows, recent] = await Promise.all([
+  const [active, sent, recovered, risky, drafted, frequencyAlerts, customerBlocks, completedRows, recent] = await Promise.all([
     db.cartSession.count({ where: { shop: session.shop, status: "ACTIVE" } }),
     db.cartSession.count({ where: { shop: session.shop, messageSentAt: { not: null } } }),
     db.cartSession.count({ where: { shop: session.shop, status: "RECOVERED" } }),
@@ -66,7 +66,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
       pancakeTokenSaved: Boolean(config.pancakeAccessToken),
       pancakeDraftMode: config.pancakeDraftMode,
     },
-    stats: { active, sent, recovered, risky, drafted, blockedIps, customerBlocks: customerBlocks.length, completed: completedOrders.size, completedRevenue },
+    stats: { active, sent, recovered, risky, drafted, frequencyAlerts, customerBlocks: customerBlocks.length, completed: completedOrders.size, completedRevenue },
     customerBlocks: customerBlocks.map((block) => ({
       ...block,
       updatedAtLabel: updatedAtFormatter.format(block.updatedAt),
@@ -297,7 +297,7 @@ export default function Dashboard() {
           <div style={cardStyle}><small>Mensajes enviados</small><div style={{ fontSize: 28, fontWeight: 700 }}>{data.stats.sent}</div></div>
           <div style={cardStyle}><small>Recuperados</small><div style={{ fontSize: 28, fontWeight: 700 }}>{data.stats.recovered}</div></div>
           <div style={cardStyle}><small>Con alerta de riesgo</small><div style={{ fontSize: 28, fontWeight: 700 }}>{data.stats.risky}</div></div>
-          <div style={{ ...cardStyle, borderColor: "#f1b5ae", background: "#fff7f6" }}><small>IP bloqueadas por fraude</small><div style={{ fontSize: 28, fontWeight: 700, color: "#b42318" }}>{data.stats.blockedIps}</div></div>
+          <div style={{ ...cardStyle, borderColor: "#f1b5ae", background: "#fff7f6" }}><small>Alertas por frecuencia</small><div style={{ fontSize: 28, fontWeight: 700, color: "#b42318" }}>{data.stats.frequencyAlerts}</div></div>
           <div style={cardStyle}><small>Borradores</small><div style={{ fontSize: 28, fontWeight: 700 }}>{data.stats.drafted}</div></div>
         </div>
       </s-section>
@@ -367,7 +367,7 @@ export default function Dashboard() {
             Los pedidos siguen entrando las 24 horas. Este horario controla únicamente cuándo se envían los WhatsApp de recuperación.
           </div>
           <div style={{ marginBottom: 16, padding: 12, borderRadius: 10, background: "#fff7f6", color: "#8a1c14" }}>
-            Protección antifraude activa: al tercer intento de pedido COD desde la misma IP dentro de 24 horas, la IP queda bloqueada permanentemente. La app conserva solo un hash de la IP.
+            Alerta antifraude activa: desde el tercer pedido COD de la misma IP dentro de 24 horas, el pedido sigue entrando y queda marcado para revisión. No existe bloqueo automático por IP y la app conserva solo un hash de la IP.
           </div>
           {actionData && "error" in actionData && actionData.error && (
             <div style={{ marginBottom: 16, padding: 12, borderRadius: 10, background: "#fff1f0", color: "#8e1b14" }}>{actionData.error}</div>

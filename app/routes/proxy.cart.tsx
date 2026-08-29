@@ -4,14 +4,13 @@ import { createCodOrder, upsertCart, type CartPayload } from "../services/cart.s
 import { ensureShopData } from "../services/bootstrap.server";
 import db from "../db.server";
 import { DEFAULT_FORM_BUILDER, DEFAULT_SALES_TOOLS, parseSettings } from "../services/app-settings.server";
-import { clientIpAddress, hashClientIp, isIpPermanentlyBlocked } from "../services/fraud.server";
+import { clientIpAddress, hashClientIp } from "../services/fraud.server";
 import { captureAttribution } from "../services/attribution.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { session } = await authenticate.public.appProxy(request);
   if (!session) return Response.json({ error: "App no instalada" }, { status: 401 });
   const config = await ensureShopData(session.shop);
-  const blocked = await isIpPermanentlyBlocked(session.shop, hashClientIp(request.headers, session.shop));
   const coverage = await db.coverageRule.findMany({
       where: { shop: session.shop, active: true },
       orderBy: [{ province: "asc" }, { city: "asc" }],
@@ -26,7 +25,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
       formBuilder: parseSettings(config.formBuilderJson, DEFAULT_FORM_BUILDER),
       salesTools: parseSettings(config.salesToolsJson, DEFAULT_SALES_TOOLS),
     },
-    fraud: { blocked },
+    fraud: { blocked: false },
     coverage,
   });
 };

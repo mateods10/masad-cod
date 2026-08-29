@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { hashClientIp } from "./fraud.server";
+import { hashClientIp, isFrequentCodActivity } from "./fraud.server";
 
 describe("fraud IP protection", () => {
   it("uses the originating public IP and stores only a stable hash", () => {
@@ -14,5 +14,12 @@ describe("fraud IP protection", () => {
   it("does not hash internal proxy addresses", () => {
     process.env.FRAUD_IP_HASH_KEY = "test-key";
     expect(hashClientIp(new Headers({ "x-forwarded-for": "10.0.0.10" }), "luminos-test.myshopify.com")).toBeNull();
+  });
+
+  it("flags the third COD order in 24 hours without treating earlier orders as suspicious", () => {
+    expect(isFrequentCodActivity(1)).toBe(false);
+    expect(isFrequentCodActivity(2)).toBe(false);
+    expect(isFrequentCodActivity(3)).toBe(true);
+    expect(isFrequentCodActivity(8)).toBe(true);
   });
 });
