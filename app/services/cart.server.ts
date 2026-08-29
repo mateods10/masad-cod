@@ -229,21 +229,39 @@ export function buildShopifyShippingAddress(input: {
   reference: string;
   city: string;
   province: string;
-}) {
+}, options: { fullProvinceInCity?: boolean } = {}) {
   const { firstName, lastName } = splitFullName(input.fullName);
+  const fullProvinceInCity = options.fullProvinceInCity === true;
+  const provinceLabel = input.province
+    .trim()
+    .toLocaleLowerCase("es-EC")
+    .replace(/(^|[\s-])\p{L}/gu, (letter) => letter.toLocaleUpperCase("es-EC"));
+  const cityAlreadyIncludesProvince = normalizeText(input.city).includes(normalizeText(input.province));
+  const city = fullProvinceInCity && !cityAlreadyIncludesProvince
+    ? `${input.city.trim()} ${provinceLabel}`.trim()
+    : input.city;
   return {
     firstName,
     lastName,
     phone: input.phone,
     address1: input.address,
     address2: input.reference,
-    city: input.city,
-    // Shopify and integrations such as PosCake may read either the complete
-    // province name or its subdivision code, so persist both representations.
-    province: input.province,
-    provinceCode: provinceCode(input.province),
+    city,
+    // PosCake renders Shopify's Ecuador subdivision code (for example, "P")
+    // instead of its full label. Luminos can place the complete province next
+    // to the city and omit the abbreviated subdivision fields so the delivery
+    // address remains readable in PosCake. Other installations keep the
+    // original structured province fields.
+    ...(fullProvinceInCity ? {} : {
+      province: input.province,
+      provinceCode: provinceCode(input.province),
+    }),
     countryCode: "EC",
   };
+}
+
+function posCakeFullProvinceInCity() {
+  return process.env.POSCAKE_FULL_PROVINCE_IN_CITY === "1";
 }
 
 export async function createCodOrder(
@@ -359,7 +377,7 @@ export async function createCodOrder(
               reference,
               city,
               province,
-            }),
+            }, { fullProvinceInCity: posCakeFullProvinceInCity() }),
             shippingLines: [
               {
                 title: shippingLabel,
@@ -481,9 +499,20 @@ export async function createAbandonedDraftOrder(admin: AdminClient, cart: CartSe
         phone: cart.phoneNormalized ?? undefined,
         address1: cart.address ?? undefined,
         address2: cart.reference ?? undefined,
-        city: cart.city ?? undefined,
-        provinceCode: cart.province ? provinceCode(cart.province) : undefined,
-        province: cart.province ?? undefined,
+        city: cart.city && cart.province && posCakeFullProvinceInCity()
+          ? buildShopifyShippingAddress({
+              fullName: cart.fullName ?? "Cliente sin completar",
+              phone: cart.phoneNormalized ?? "",
+              address: cart.address ?? "",
+              reference: cart.reference ?? "",
+              city: cart.city,
+              province: cart.province,
+            }, { fullProvinceInCity: true }).city
+          : cart.city ?? undefined,
+        ...(posCakeFullProvinceInCity() ? {} : {
+          provinceCode: cart.province ? provinceCode(cart.province) : undefined,
+          province: cart.province ?? undefined,
+        }),
         countryCode: "EC",
       }
     : undefined;
