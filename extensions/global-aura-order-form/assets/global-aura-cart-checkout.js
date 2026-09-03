@@ -113,6 +113,7 @@
     const city = form.elements.city;
     const status = modal.querySelector("[data-ga-cart-status]");
     const total = modal.querySelector("[data-ga-cart-total]");
+    let completedOrder = false;
     const renderSummary = () => {
       modal.querySelector("[data-ga-cart-lines]").innerHTML = cart.items.map((item) =>
         `<div class="ga-cart-order-line"><span>${item.quantity} × ${item.product_title}${item.variant_title && item.variant_title !== "Default Title" ? ` · ${item.variant_title}` : ""}</span><b>${money(item.final_line_price / 100)}</b></div>`,
@@ -136,6 +137,10 @@
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+      if (completedOrder) {
+        window.location.href = storeRoot();
+        return;
+      }
       if (!form.checkValidity()) { form.reportValidity(); return; }
       const submit = form.querySelector(".ga-submit");
       submit.disabled = true;
@@ -156,6 +161,9 @@
         status.textContent = `✓ ${result.orderName} confirmado. Te contactaremos pronto.`;
         localStorage.removeItem(sessionKey);
         form.querySelectorAll("input,select,button").forEach((element) => { element.disabled = true; });
+        completedOrder = true;
+        submit.disabled = false;
+        submit.textContent = "HACER OTRO PEDIDO";
       } catch (error) {
         status.textContent = error instanceof Error ? error.message : "No se pudo procesar el pedido.";
         submit.disabled = false;
