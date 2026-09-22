@@ -15,10 +15,11 @@
   let stored = {};
   try { stored = JSON.parse(localStorage.getItem(attributionKey) || "{}"); } catch { stored = {}; }
   const params = new URL(location.href).searchParams;
-  const attribution = { ...stored };
+  const hasNewMarketingTouch = allowed.some((key) => params.has(key));
+  const attribution = hasNewMarketingTouch ? {} : { ...stored };
   allowed.forEach((key) => {
     const value = params.get(key);
-    if (!attribution[key] && value) attribution[key] = value.slice(0, 255);
+    if (value) attribution[key] = value.slice(0, 255);
   });
   if (!attribution.referrer_url && document.referrer) {
     try {
@@ -26,9 +27,18 @@
       if (referrer.hostname !== location.hostname) attribution.referrer_url = referrer.href.slice(0, 2000);
     } catch { /* Ignore malformed browser referrers. */ }
   }
-  if (!attribution.full_url) attribution.full_url = location.href.slice(0, 2000);
+  if (hasNewMarketingTouch || !attribution.full_url) attribution.full_url = location.href.slice(0, 2000);
   localStorage.setItem(attributionKey, JSON.stringify(attribution));
   window.GAMarketingAttribution = attribution;
+
+  // A completed order starts a new attribution journey. The order form updates
+  // this status element before it reloads the page, so clear the previous touch
+  // without coupling the attribution script to the form implementation.
+  document.querySelectorAll("[data-ga-status]").forEach((status) => {
+    new MutationObserver(() => {
+      if (status.dataset.state === "success") localStorage.removeItem(attributionKey);
+    }).observe(status, { attributes: true, childList: true, subtree: true });
+  });
 
   const modal = document.querySelector(".ga-order-modal[data-ga-proxy]");
   const cartBlock = document.querySelector("[data-ga-cart-checkout][data-ga-proxy]");

@@ -1,6 +1,6 @@
 import type { CartSession } from "@prisma/client";
 import { describe, expect, it, vi } from "vitest";
-import { buildShopifyOrderLineItems, buildShopifyShippingAddress, createAbandonedDraftOrder } from "./cart.server";
+import { buildShopifyOrderLineItems, buildShopifyOrderNote, buildShopifyShippingAddress, createAbandonedDraftOrder } from "./cart.server";
 
 describe("Shopify and PosCake address", () => {
   it("sends the city and both province representations", () => {
@@ -61,6 +61,32 @@ describe("Shopify and PosCake shipping workflow", () => {
         requiresShipping: true,
       },
     ]);
+  });
+});
+
+describe("Shopify order note", () => {
+  it("shows a compact marketing summary without technical URLs or cart tokens", () => {
+    const note = buildShopifyOrderNote({
+      shippingSummary: "Envío gratis",
+      reference: "Al lado de la farmacia",
+      marketingPlatform: "TIKTOK",
+      attribution: {
+        utm_source: "tiktok",
+        utm_medium: "paid",
+        utm_campaign: "Deep Algo",
+        full_url: "https://example.com/product?ttclid=very-long-click-id",
+        "shopify-cart-token": "private-cart-token",
+      },
+      isRiskZone: false,
+      riskScore: 0,
+      riskReasons: [],
+    });
+
+    expect(note).toContain("ORIGEN DE LA VENTA\nPlataforma: TikTok");
+    expect(note).toContain("Canal: tiktok / paid");
+    expect(note).toContain("Campaña: Deep Algo");
+    expect(note).not.toContain("https://");
+    expect(note).not.toContain("private-cart-token");
   });
 });
 

@@ -20,6 +20,8 @@ import {
   detectMarketingPlatform,
   parseAttribution,
   shopifyReferringSite,
+  type MarketingAttribution,
+  type MarketingPlatform,
 } from "./attribution.server";
 
 export type AdminClient = {
@@ -51,6 +53,45 @@ export type ConversionRequestContext = {
 };
 
 type ResolvedLine = CartLine & { productTitle: string; price: number };
+
+export function buildShopifyOrderNote(input: {
+  shippingSummary: string;
+  reference: string;
+  marketingPlatform: MarketingPlatform | null;
+  attribution: MarketingAttribution;
+  isRiskZone: boolean;
+  riskScore: number;
+  riskReasons: string[];
+}) {
+  const platformLabel = input.marketingPlatform === "META"
+    ? "Meta (Facebook/Instagram)"
+    : input.marketingPlatform === "TIKTOK"
+      ? "TikTok"
+      : "Sin identificar";
+  const channel = [input.attribution.utm_source, input.attribution.utm_medium].filter(Boolean).join(" / ");
+  const sections = [
+    [
+      "ENTREGA",
+      `Método: ${input.shippingSummary}`,
+      `Referencia: ${input.reference}`,
+    ],
+    [
+      "ORIGEN DE LA VENTA",
+      `Plataforma: ${platformLabel}`,
+      channel ? `Canal: ${channel}` : null,
+      input.attribution.utm_campaign ? `Campaña: ${input.attribution.utm_campaign}` : null,
+    ],
+    [
+      "CONTROL DE RIESGO",
+      input.isRiskZone
+        ? "Zona: ⚠️ ofrecer entrega en agencia Servientrega antes de despachar"
+        : "Zona: entrega normal",
+      `Puntaje: ${input.riskScore}/100`,
+      input.riskReasons.length ? `Alertas: ${input.riskReasons.join("; ")}` : "Alertas: ninguna",
+    ],
+  ];
+  return sections.map((lines) => lines.filter(Boolean).join("\n")).join("\n\n");
+}
 
 function variantGid(value: string | number) {
   const raw = String(value);
@@ -391,23 +432,15 @@ export async function createCodOrder(
             tags,
             sourceIdentifier: cart.id,
             referringSite: shopifyReferringSite(cart.attributionJson),
-            note: [
-              `Método de envío: ${shippingSummary}`,
-              `Referencia: ${reference}`,
-              marketingPlatform ? `Plataforma de venta: ${marketingPlatform === "META" ? "Meta (Facebook/Instagram)" : "TikTok"}` : null,
-              attribution.utm_source ? `Origen marketing: ${attribution.utm_source}${attribution.utm_medium ? ` / ${attribution.utm_medium}` : ""}` : null,
-              attribution.utm_campaign ? `Campaña: ${attribution.utm_campaign}` : null,
-              attribution.tt_campaignid ? `TikTok campaña: ${attribution.tt_campaignid}` : null,
-              attribution.tt_adgroupid ? `TikTok grupo de anuncios: ${attribution.tt_adgroupid}` : null,
-              attribution.tt_creativeid ? `TikTok creativo: ${attribution.tt_creativeid}` : null,
-              attribution.full_url ? `URL de origen: ${attribution.full_url}` : null,
-              attribution["shopify-cart-token"] ? `Shopify cart token: ${attribution["shopify-cart-token"]}` : null,
-              isRiskZone
-                ? "⚠️ ZONA DE RIESGO: ofrecer entrega en agencia Servientrega antes de despachar."
-                : "Zona de entrega: sin alerta de riesgo.",
-              `Riesgo: ${cart.riskScore}/100`,
-              reasons.length ? `Motivos: ${reasons.join("; ")}` : "Sin alertas automáticas",
-            ].filter(Boolean).join("\n"),
+            note: buildShopifyOrderNote({
+              shippingSummary,
+              reference,
+              marketingPlatform,
+              attribution,
+              isRiskZone,
+              riskScore: cart.riskScore,
+              riskReasons: reasons,
+            }),
             customAttributes: [
               { key: "global_aura_session_id", value: cart.browserSessionId },
               { key: "Nombre completo", value: fullName },

@@ -8,6 +8,7 @@ import { encryptCredential } from "../services/credentials.server";
 import { createAbandonedDraftOrder } from "../services/cart.server";
 import { normalizeEcuadorPhone } from "../lib/domain";
 import { sendRecoveryViaPancake } from "../services/pancake.server";
+import { detectMarketingPlatform } from "../services/attribution.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { admin, session } = await authenticate.admin(request);
@@ -27,23 +28,41 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     }),
     db.cartSession.findMany({
       where: { shop: session.shop, orderId: { not: null }, status: { in: ["ORDERED", "RECOVERED"] } },
-      select: { orderId: true, orderTotal: true, subtotal: true, shippingMethod: true },
+      select: { orderId: true, orderTotal: true, subtotal: true, shippingMethod: true, attributionJson: true },
     }),
     db.cartSession.findMany({ where: { shop: session.shop }, orderBy: { updatedAt: "desc" }, take: 10 }),
   ]);
-  const completedOrders = new Map<string, { subtotal: number; shippingMethod: string }>();
+  const completedOrders = new Map<string, { subtotal: number; shippingMethod: string; source: "META" | "TIKTOK" | "UNATTRIBUTED" }>();
   for (const row of completedRows) {
     if (!row.orderId) continue;
     const current = completedOrders.get(row.orderId);
     const value = row.orderTotal == null
       ? Number(row.subtotal) + (row.shippingMethod === "PRIORITY" ? Number(config.priorityFee) : 0)
       : Number(row.orderTotal);
-    if (!current || value > current.subtotal) completedOrders.set(row.orderId, { subtotal: value, shippingMethod: row.shippingMethod });
+    const source = detectMarketingPlatform(row.attributionJson) ?? "UNATTRIBUTED";
+    if (!current || value > current.subtotal || (current.source === "UNATTRIBUTED" && source !== "UNATTRIBUTED")) {
+      completedOrders.set(row.orderId, { subtotal: value, shippingMethod: row.shippingMethod, source });
+    }
   }
   const completedRevenue = [...completedOrders.values()].reduce(
     (total, order) => total + order.subtotal,
     0,
   );
+  const sourceDefinitions = [
+    { key: "TIKTOK" as const, label: "TikTok", color: "#111111" },
+    { key: "META" as const, label: "Meta (Facebook/Instagram)", color: "#1877f2" },
+    { key: "UNATTRIBUTED" as const, label: "Sin identificar", color: "#8c9196" },
+  ];
+  const sourceStats = sourceDefinitions.map((source) => {
+    const orders = [...completedOrders.values()].filter((order) => order.source === source.key);
+    const revenue = orders.reduce((total, order) => total + order.subtotal, 0);
+    return {
+      ...source,
+      orders: orders.length,
+      revenue,
+      percentage: completedRevenue > 0 ? (revenue / completedRevenue) * 100 : 0,
+    };
+  });
   const updatedAtFormatter = new Intl.DateTimeFormat("es-EC", {
     dateStyle: "short",
     timeStyle: "short",
@@ -67,6 +86,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
       pancakeDraftMode: config.pancakeDraftMode,
     },
     stats: { active, sent, recovered, risky, drafted, frequencyAlerts, customerBlocks: customerBlocks.length, completed: completedOrders.size, completedRevenue },
+    sourceStats,
     customerBlocks: customerBlocks.map((block) => ({
       ...block,
       updatedAtLabel: updatedAtFormatter.format(block.updatedAt),
@@ -77,6 +97,11 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
       phone: cart.phone ?? "—",
       status: cart.status,
       subtotal: Number(cart.subtotal),
+      source: detectMarketingPlatform(cart.attributionJson) === "META"
+        ? "Meta"
+        : detectMarketingPlatform(cart.attributionJson) === "TIKTOK"
+          ? "TikTok"
+          : "Sin identificar",
       riskScore: cart.riskScore,
       updatedAtLabel: updatedAtFormatter.format(cart.updatedAt),
     })),
@@ -302,6 +327,31 @@ export default function Dashboard() {
         </div>
       </s-section>
 
+      <s-section heading="Ventas por origen">
+        <div style={{ ...cardStyle, display: "grid", gap: 16 }}>
+          <div>
+            <strong style={{ fontSize: 17 }}>Origen detectado por Masad</strong>
+            <p style={{ margin: "5px 0 0", color: "#616a75", lineHeight: 1.45 }}>
+              Se calcula con los identificadores y campañas guardados al entrar desde Meta o TikTok. Los pedidos sin una señal verificable permanecen como “Sin identificar”.
+            </p>
+          </div>
+          {data.sourceStats.map((source) => (
+            <div key={source.key} className="ga-source-row">
+              <div>
+                <div style={{ fontWeight: 800 }}>{source.label}</div>
+                <small style={{ color: "#616a75" }}>{source.orders} {source.orders === 1 ? "pedido" : "pedidos"}</small>
+              </div>
+              <div style={{ height: 14, borderRadius: 999, background: "#edf0f2", overflow: "hidden" }}>
+                <div style={{ width: `${Math.max(source.percentage, source.revenue > 0 ? 2 : 0)}%`, height: "100%", borderRadius: 999, background: source.color }} />
+              </div>
+              <div style={{ minWidth: 100, textAlign: "right", fontWeight: 800 }}>
+                ${source.revenue.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </s-section>
+
       <s-section heading="Visibilidad">
         <Form method="post">
           <div style={{ ...cardStyle, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
@@ -437,12 +487,12 @@ export default function Dashboard() {
       <s-section heading="Actividad reciente">
         <div style={{ overflowX: "auto" }}>
           <table className="ga-admin-table">
-            <thead><tr><th>Cliente</th><th>Celular</th><th>Estado</th><th>Total</th><th>Riesgo</th><th>Actualizado</th></tr></thead>
+            <thead><tr><th>Cliente</th><th>Celular</th><th>Origen</th><th>Estado</th><th>Total</th><th>Riesgo</th><th>Actualizado</th></tr></thead>
             <tbody>
               {data.recent.map((cart) => (
-                <tr key={cart.id}><td>{cart.name}</td><td>{cart.phone}</td><td>{cart.status}</td><td>${cart.subtotal.toFixed(2)}</td><td>{cart.riskScore}/100</td><td>{cart.updatedAtLabel}</td></tr>
+                <tr key={cart.id}><td>{cart.name}</td><td>{cart.phone}</td><td><strong>{cart.source}</strong></td><td>{cart.status}</td><td>${cart.subtotal.toFixed(2)}</td><td>{cart.riskScore}/100</td><td>{cart.updatedAtLabel}</td></tr>
               ))}
-              {!data.recent.length && <tr><td colSpan={6}>Todavía no hay carritos registrados.</td></tr>}
+              {!data.recent.length && <tr><td colSpan={7}>Todavía no hay carritos registrados.</td></tr>}
             </tbody>
           </table>
         </div>

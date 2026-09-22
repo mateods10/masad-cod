@@ -9,7 +9,7 @@ import {
 } from "./attribution.server";
 
 describe("TikTok marketing attribution", () => {
-  it("keeps first-touch campaign values and refreshes the cart token", () => {
+  it("keeps the latest campaign values and refreshes the cart token", () => {
     const first = sanitizeAttribution({
       utm_source: "tiktok",
       utm_campaign: "Campaña inicial",
@@ -21,7 +21,7 @@ describe("TikTok marketing attribution", () => {
       utm_campaign: "Campaña posterior",
       "shopify-cart-token": "cart-456",
     }));
-    expect(merged.utm_campaign).toBe("Campaña inicial");
+    expect(merged.utm_campaign).toBe("Campaña posterior");
     expect(merged["shopify-cart-token"]).toBe("cart-456");
     expect(merged).not.toHaveProperty("ignored");
   });
@@ -33,8 +33,8 @@ describe("TikTok marketing attribution", () => {
       tt_adgroupid: "adgroup-2",
       tt_creativeid: "creative-3",
     }));
-    expect(attributes).toContainEqual({ key: "utm_source", value: "tiktok" });
-    expect(attributes).toContainEqual({ key: "tt_creativeid", value: "creative-3" });
+    expect(attributes).toContainEqual({ key: "Origen marketing", value: "tiktok" });
+    expect(attributes).toContainEqual({ key: "TikTok · creativo ID", value: "creative-3" });
   });
 
   it("maps TikTok clicks to a Shopify referrer", () => {

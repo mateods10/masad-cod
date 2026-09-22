@@ -42,9 +42,10 @@ export default function App() {
           .ga-event-grid input { width: 18px; height: 18px; }
           .ga-event-table { margin-top: 18px; padding: 16px; border: 1px solid #d8d8d8; border-radius: 14px; background: #fff; }
           .ga-event-table h3 { margin: 0 0 12px; font-size: 16px; }
+          .ga-source-row { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(180px, 3fr) auto; gap: 14px; align-items: center; }
           .ga-muted { color: #6d7175; font-size: 13px; }
           .ga-form-error { margin: 12px 0 0; padding: 10px 12px; border-radius: 8px; background: #fff0f0; color: #9a1515; }
-          @media (max-width: 720px) { .ga-pixel-row { grid-template-columns: 1fr; } .ga-pixel-actions { justify-content: flex-start; } }
+          @media (max-width: 720px) { .ga-pixel-row, .ga-source-row { grid-template-columns: 1fr; } .ga-pixel-actions { justify-content: flex-start; } .ga-source-row > :last-child { text-align: left !important; } }
         `}</style>
       </head>
       <body>

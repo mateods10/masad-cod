@@ -160,6 +160,7 @@
         await fetch(`${storeRoot()}cart/clear.js`, { method: "POST", headers: { accept: "application/json" } });
         status.textContent = `✓ ${result.orderName} confirmado. Te contactaremos pronto.`;
         localStorage.removeItem(sessionKey);
+        localStorage.removeItem("masad_marketing_attribution");
         form.querySelectorAll("input,select,button").forEach((element) => { element.disabled = true; });
         completedOrder = true;
         submit.disabled = false;

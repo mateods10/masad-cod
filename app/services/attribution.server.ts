@@ -39,11 +39,10 @@ export function parseAttribution(value: string | null | undefined): MarketingAtt
 export function mergeAttribution(existing: MarketingAttribution, incoming: MarketingAttribution) {
   const merged = { ...existing };
   for (const key of ATTRIBUTION_KEYS) {
-    if (key === "shopify-cart-token") {
-      if (incoming[key]) merged[key] = incoming[key];
-    } else if (!merged[key] && incoming[key]) {
-      merged[key] = incoming[key];
-    }
+    // Keep the most recent marketing touch. A customer can return through a
+    // different campaign before ordering, so retaining the first value forever
+    // assigns later orders to the wrong platform or campaign.
+    if (incoming[key]) merged[key] = incoming[key];
   }
   return merged;
 }
@@ -65,8 +64,18 @@ export async function captureAttribution(shop: string, browserSessionId: string,
 
 export function attributionOrderAttributes(value: string | null | undefined) {
   const attribution = parseAttribution(value);
-  return ATTRIBUTION_KEYS.flatMap((key) => attribution[key]
-    ? [{ key, value: attribution[key]!.slice(0, 255) }]
+  const visibleAttributes: Array<[keyof MarketingAttribution, string]> = [
+    ["utm_source", "Origen marketing"],
+    ["utm_medium", "Medio marketing"],
+    ["utm_campaign", "Campaña marketing"],
+    ["utm_id", "ID de campaña"],
+    ["utm_content", "Contenido del anuncio"],
+    ["tt_campaignid", "TikTok · campaña ID"],
+    ["tt_adgroupid", "TikTok · grupo ID"],
+    ["tt_creativeid", "TikTok · creativo ID"],
+  ];
+  return visibleAttributes.flatMap(([key, label]) => attribution[key]
+    ? [{ key: label, value: attribution[key]!.slice(0, 255) }]
     : []);
 }
 
