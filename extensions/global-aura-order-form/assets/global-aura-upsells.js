@@ -44,6 +44,15 @@
     dialog.append(accept, skip, status); document.body.append(dialog); dialog.showModal(); skip.focus();
   });
   window.GAUpsells = {
+    async finish(proxy, result, modal) {
+      const total = modal.querySelector("[data-ga-total]");
+      if (total && result.orderTotal != null) total.textContent = money(result.orderTotal);
+      const updated = await this.post(proxy, result);
+      if (updated == null) return;
+      if (total) total.textContent = money(updated);
+      const status = modal.querySelector("[data-ga-status]");
+      if (status) { status.textContent = `✓ ${result.orderName} actualizado. Total a pagar al recibir: ${money(updated)}.`; status.dataset.state = "success"; }
+    },
     async pre(proxy, cart) {
       let offers;
       try { offers = (await request(proxy, { intent: "quote-upsells", cart: { lines: cart.lines } })).offers; } catch { return []; }
