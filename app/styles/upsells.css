@@ -1,0 +1,258 @@
+.mu-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #303030;
+  font:
+    14px/1.5 system-ui,
+    sans-serif;
+}
+.mu-shell * {
+  box-sizing: border-box;
+}
+.mu-shell a {
+  color: inherit;
+}
+.mu-toolbar,
+.mu-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.mu-toolbar {
+  margin: 18px 0;
+}
+.mu-card {
+  background: #fff;
+  border: 1px solid #dedede;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 1px 2px #00000008;
+}
+.mu-list,
+.mu-fields {
+  display: grid;
+  gap: 18px;
+}
+.mu-list .mu-toolbar {
+  margin: 0;
+}
+.mu-shell h2 {
+  font-size: 16px;
+  margin: 0 0 14px;
+}
+.mu-toolbar h2 {
+  margin: 0;
+}
+.mu-shell p {
+  color: #646464;
+}
+.mu-primary,
+.mu-secondary,
+.mu-danger {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font: 600 13px/1.4 system-ui;
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 38px;
+}
+.mu-shell .mu-primary {
+  background: #303030;
+  color: white;
+  border: 1px solid #202020;
+  box-shadow: inset 0 1px 1px #ffffff40;
+}
+.mu-secondary {
+  background: white;
+  border: 1px solid #c5c5c5;
+  color: #303030;
+}
+.mu-danger {
+  background: white;
+  color: #a52222;
+  border: 1px solid #ecc;
+}
+.mu-shell button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.mu-empty {
+  text-align: center;
+  padding: 50px 20px;
+}
+.mu-empty p {
+  margin: 16px 0 28px;
+}
+.mu-illustration {
+  color: #118469;
+  background: #edf5f1;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  margin: 0 auto 26px;
+}
+.mu-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+  gap: 24px;
+}
+.mu-fields label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+.mu-fields input:not([type="checkbox"]) {
+  width: 100%;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  padding: 11px 12px;
+  font: inherit;
+  color: #303030;
+  background: #fff;
+}
+.mu-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mu-switch input {
+  width: 18px;
+  height: 18px;
+  accent-color: #008060;
+}
+.mu-badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: #eee;
+  font-size: 12px;
+}
+.mu-active {
+  background: #c8f5d9;
+  color: #075c38;
+}
+.mu-products {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+.mu-product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+.mu-product img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border: 1px solid #eee;
+  border-radius: 7px;
+}
+.mu-product span {
+  flex: 1;
+}
+.mu-product small,
+.mu-price small {
+  display: block;
+  color: #777;
+}
+.mu-remove,
+.mu-plain {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.mu-remove {
+  padding: 7px;
+  font-size: 20px;
+}
+.mu-offer-fields {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 14px;
+  margin-top: 16px;
+}
+.mu-selected {
+  border-color: #008060;
+}
+.mu-price strong {
+  font-size: 22px;
+  color: #153e36;
+}
+.mu-price del {
+  color: #888;
+  margin-right: 8px;
+}
+.mu-notice {
+  padding: 16px;
+  background: #eaf4ff;
+  border: 1px solid #bed9f2;
+  border-radius: 10px;
+  margin: 16px 0;
+}
+.mu-success {
+  background: #ecf8ef;
+  border-color: #b5ddbe;
+}
+.mu-error {
+  background: #fff0f0;
+  border-color: #f0bcbc;
+}
+.mu-preview {
+  align-self: start;
+  position: sticky;
+  top: 20px;
+  text-align: center;
+}
+.mu-preview-image {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  margin: 20px auto;
+}
+.mu-preview-cta {
+  display: flex !important;
+}
+.mu-muted {
+  font-size: 12px;
+}
+.mu-save {
+  position: sticky;
+  bottom: 0;
+  background: #f7f7f7f5;
+  border-top: 1px solid #ddd;
+  padding: 16px 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+.mu-shell :focus-visible {
+  outline: 3px solid #008060;
+  outline-offset: 3px;
+}
+@media (max-width: 800px) {
+  .mu-columns {
+    grid-template-columns: 1fr;
+  }
+  .mu-preview {
+    position: static;
+  }
+  .mu-offer-fields {
+    grid-template-columns: 1fr;
+  }
+  .mu-card {
+    padding: 16px;
+  }
+}

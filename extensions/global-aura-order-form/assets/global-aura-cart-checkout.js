@@ -146,23 +146,30 @@
       submit.disabled = true;
       status.textContent = "Estamos verificando tu pedido…";
       try {
+        const upsells = await window.GAUpsells?.pre(root.dataset.gaProxy, { lines: cartLines() }) || [];
         const response = await fetch(root.dataset.gaProxy, {
           method: "POST", headers: { "content-type": "application/json", accept: "application/json" },
           body: JSON.stringify({ intent: "place-cod", cart: {
             browserSessionId: sessionId(), fullName: form.elements.fullName.value, phone: form.elements.phone.value,
             email: form.elements.email.value, province: province.value, city: city.value, address: form.elements.address.value,
             reference: form.elements.reference.value, consentWhatsapp: form.elements.consentWhatsapp.checked,
-            shippingMethod: form.elements.shippingMethod.value, paymentMethod: "COD", pageUrl: location.href, lines: cartLines(),
+            shippingMethod: form.elements.shippingMethod.value, paymentMethod: "COD", pageUrl: location.href, lines: cartLines(), upsells,
           } }),
         });
         const result = await json(response, "Respuesta inválida de la tienda.");
         if (!response.ok || result.error) throw new Error(result.error || "No se pudo procesar el pedido.");
+        if (result.orderTotal != null) total.textContent = money(result.orderTotal);
         await fetch(`${storeRoot()}cart/clear.js`, { method: "POST", headers: { accept: "application/json" } });
         status.textContent = `✓ ${result.orderName} confirmado. Te contactaremos pronto.`;
         localStorage.removeItem(sessionKey);
         localStorage.removeItem("masad_marketing_attribution");
         form.querySelectorAll("input,select,button").forEach((element) => { element.disabled = true; });
         completedOrder = true;
+        const updatedTotal = await window.GAUpsells?.post(root.dataset.gaProxy, result);
+        if (updatedTotal != null) {
+          total.textContent = money(updatedTotal);
+          status.textContent = `✓ ${result.orderName} actualizado. Total a pagar al recibir: ${money(updatedTotal)}.`;
+        }
         submit.disabled = false;
         submit.textContent = "HACER OTRO PEDIDO";
       } catch (error) {

@@ -93,6 +93,7 @@ model CartSession {
   recoveredAt       DateTime?
   orderId           String?
   orderTotal        Decimal?
+  upsellEditing     Boolean   @default(false)
   draftOrderId      String?
   draftOrderName    String?
   draftedAt         DateTime?
@@ -195,6 +196,21 @@ model RiskZone {
 
   @@unique([shop, normalizedProvince, normalizedCity, normalizedSector])
   @@index([shop, normalizedProvince, normalizedCity, active])
+}
+
+model UpsellAcceptance {
+  id          String @id @default(cuid())
+  shop        String
+  orderId     String
+  campaignId  String
+  offerId     String
+  status      String @default("PENDING")
+  orderTotal  Decimal?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([shop, orderId, campaignId, offerId])
+  @@index([shop, orderId, status])
 }
 
 model TrackingPixel {

@@ -10,6 +10,7 @@ automatically_update_urls_on_dev = true
 
 [access_scopes]
 scopes = "read_products,read_orders,write_orders,write_draft_orders,write_app_proxy"
+optional_scopes = [ "write_order_edits" ]
 
 [auth]
 redirect_urls = [ "https://masad-cod-luminos-production.up.railway.app/auth/callback" ]

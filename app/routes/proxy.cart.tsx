@@ -6,6 +6,8 @@ import db from "../db.server";
 import { DEFAULT_FORM_BUILDER, DEFAULT_SALES_TOOLS, parseSettings } from "../services/app-settings.server";
 import { clientIpAddress, hashClientIp } from "../services/fraud.server";
 import { captureAttribution } from "../services/attribution.server";
+import { quoteUpsells } from "../services/upsells.server";
+import { acceptPostUpsell, postCart, postUpsellToken } from "../services/post-upsells.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { session } = await authenticate.public.appProxy(request);
@@ -35,7 +37,21 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     const { admin, session } = await authenticate.public.appProxy(request);
     if (!session || !admin) return Response.json({ error: "App no instalada" }, { status: 401 });
     const config = await ensureShopData(session.shop);
-    const body = (await request.json()) as { intent?: string; cart?: CartPayload; browserSessionId?: string; attribution?: unknown };
+    const body = (await request.json()) as { intent?: string; cart?: CartPayload; browserSessionId?: string; attribution?: unknown; token?: string; campaignId?: string; offerId?: string; expectedPrice?: number };
+    if (body.intent === "quote-upsells") {
+      const offers = await quoteUpsells(admin, config.salesToolsJson, body.cart?.lines || []);
+      return Response.json({ offers }, { headers: { "Cache-Control": "no-store" } });
+    }
+    if (body.intent === "post-upsells" || body.intent === "accept-post-upsell") {
+      if (!session.scope?.split(",").includes("write_order_edits")) return Response.json({ offers: [], error: "La tienda todavía no habilitó las ofertas post-compra." }, { status: 403 });
+      if (body.intent === "accept-post-upsell") {
+        return Response.json(await acceptPostUpsell(session.shop, admin, config.salesToolsJson, { token: body.token || "", campaignId: body.campaignId || "", offerId: body.offerId || "", expectedPrice: Number(body.expectedPrice) }));
+      }
+      const cart = await postCart(session.shop, body.token || "");
+      const accepted = await db.upsellAcceptance.findMany({ where: { shop: session.shop, orderId: cart.orderId! }, select: { campaignId: true, offerId: true } });
+      const offers = (await quoteUpsells(admin, config.salesToolsJson, JSON.parse(cart.linesJson), "POST")).filter(o => !accepted.some(a => a.campaignId === o.campaignId && a.offerId === o.id));
+      return Response.json({ offers }, { headers: { "Cache-Control": "no-store" } });
+    }
     if (body.intent === "capture-attribution") {
       if (!body.browserSessionId || body.browserSessionId.length > 120) {
         return Response.json({ error: "Sesión de atribución inválida" }, { status: 400 });
@@ -67,6 +83,8 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         orderId: result.orderId,
         orderName: result.orderName,
         duplicate: result.duplicate,
+        orderTotal: Number(result.cart.orderTotal),
+        postUpsellToken: session.scope?.split(",").includes("write_order_edits") ? postUpsellToken(session.shop, result.cart.id) : null,
       });
     }
 

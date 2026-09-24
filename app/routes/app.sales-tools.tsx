@@ -18,11 +18,13 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export const action = async ({ request }: ActionFunctionArgs) => {
   const { admin, session } = await authenticate.admin(request);
   const form = await request.formData();
+  const config = await ensureShopData(session.shop);
   const price = Math.max(0, Math.min(100, Number(form.get("orderBumpPrice")) || 0));
   const settings: SalesToolsSettings = {
+    ...parseSettings(config.salesToolsJson, DEFAULT_SALES_TOOLS),
     quantityOffers: enabled(form, "quantityOffers"), packages: enabled(form, "packages"),
     orderBump: enabled(form, "orderBump"), orderBumpLabel: safeText(form.get("orderBumpLabel"), "Preparación prioritaria", 80), orderBumpPrice: price,
-    prePurchaseUpsell: enabled(form, "prePurchaseUpsell"), downsell: enabled(form, "downsell"),
+    downsell: enabled(form, "downsell"),
   };
   await db.appConfig.update({ where: { shop: session.shop }, data: { salesToolsJson: JSON.stringify(settings), priorityFee: price } });
   await publishAppSetting(admin, "sales_tools", settings);
@@ -43,7 +45,7 @@ export default function SalesTools() {
       <ToggleCard name="packages" title="Paquetes con color y talla" badge="Activo en productos compatibles" description="Cuando el producto tiene Pack + Color/Talla, agrupa el pack y permite escoger las opciones de cada unidad sin duplicar el producto." defaultChecked={data.settings.packages} />
       <h2 style={{ marginBottom: 0 }}>Upsells y downsells</h2>
       <div style={card}><label style={{ display: "flex", gap: 10, alignItems: "center", fontWeight: 800 }}><input type="checkbox" name="orderBump" defaultChecked={data.settings.orderBump} style={{ width: 20, height: 20 }} /> Incremento de pedido: envío prioritario</label><div className="ga-admin-grid" style={{ marginTop: 14 }}><label>Nombre de la opción<input name="orderBumpLabel" defaultValue={data.settings.orderBumpLabel} /></label><label>Precio (USD)<input name="orderBumpPrice" type="number" min="0" step="0.01" defaultValue={data.priorityFee || data.settings.orderBumpPrice} /></label></div><p className="ga-muted">Esta opción se publica dentro del formulario y se suma al total y al pedido real.</p></div>
-      <ToggleCard name="prePurchaseUpsell" title="1-Click Upsell antes de comprar" description="Habilita el espacio para una oferta adicional antes de finalizar el pedido. La oferta se configura por producto desde sus variantes y metacampos." defaultChecked={data.settings.prePurchaseUpsell} />
+      <div style={card}><h2>1-Click Upsells</h2><p>Crea ofertas adicionales antes o después de confirmar el pedido. Elige manualmente los productos que activan cada upsell y hasta 5 productos para ofrecer, con descuento y vista previa.</p><s-button href="/app/upsells" variant="primary">Configurar 1-Click Upsells</s-button></div>
       <ToggleCard name="downsell" title="Downsell al cerrar" description="Permite mostrar una oferta alternativa cuando el cliente intenta cerrar el formulario." defaultChecked={data.settings.downsell} />
       <div><s-button type="submit" variant="primary" {...(navigation.state === "submitting" ? { loading: true } : {})}>Guardar herramientas</s-button></div>
     </div></Form>

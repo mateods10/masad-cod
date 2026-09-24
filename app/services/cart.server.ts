@@ -15,6 +15,7 @@ import {
 import { ensureShopData } from "./bootstrap.server";
 import { sendPurchaseConversions } from "./conversion-api.server";
 import { IP_BLOCKED_MESSAGE, registerCodAttempt } from "./fraud.server";
+import { quoteUpsells } from "./upsells.server";
 import {
   attributionOrderAttributes,
   detectMarketingPlatform,
@@ -43,6 +44,7 @@ export type CartPayload = {
   paymentMethod?: "COD" | "CARD";
   marketingAllowed?: boolean;
   pageUrl?: string;
+  upsells?: Array<{ campaignId: string; offerId: string; expectedPrice: number }>;
   lines: Array<{ variantId: string | number; quantity: number; properties?: Array<{ name: string; value: string }> }>;
 };
 
@@ -165,6 +167,24 @@ function clean(value: unknown, max = 250) {
 
 async function analyzeCart(shop: string, admin: AdminClient, payload: CartPayload, config: AppConfig) {
   const lines = await resolveLines(admin, payload.lines);
+  if (payload.upsells?.length) {
+    if (!Array.isArray(payload.upsells) || payload.upsells.length > 5) throw new Error("Demasiadas ofertas adicionales.");
+    const quotes = await quoteUpsells(admin, config.salesToolsJson, payload.lines);
+    const seen = new Set<string>();
+    for (const selected of payload.upsells) {
+      const key = `${selected.campaignId}:${selected.offerId}`;
+      const offer = quotes.find(o => o.campaignId === selected.campaignId && o.id === selected.offerId);
+      if (!offer || seen.has(key)) throw new Error("Una oferta ya no está disponible. Vuelve a revisar tu pedido.");
+      seen.add(key);
+      if (selected.expectedPrice !== offer.finalPrice) throw new Error("El precio de una oferta cambió. Vuelve a revisar tu pedido.");
+      const [line] = await resolveLines(admin, [{ variantId: offer.variantId, quantity: 1 }]);
+      lines.push({ ...line, price: offer.finalPrice, unitPrice: offer.finalPrice, properties: [{ name: "Upsell", value: offer.headline }, { name: "Descuento upsell", value: `${offer.discountPercent}%` }] });
+    }
+    // Inventory must cover repeated variants across all selected offers.
+    const totals = new Map<string, number>();
+    lines.forEach(l => totals.set(l.variantId, (totals.get(l.variantId) || 0) + l.quantity));
+    await resolveLines(admin, [...totals].map(([variantId, quantity]) => ({ variantId, quantity })));
+  }
   const subtotal = lines.reduce((total, line) => total + line.price * line.quantity, 0);
   const zones = await db.riskZone.findMany({
     where: {
@@ -199,6 +219,9 @@ export async function upsertCart(shop: string, admin: AdminClient, payload: Cart
   const existing = await db.cartSession.findUnique({
     where: { shop_browserSessionId: { shop, browserSessionId: payload.browserSessionId } },
   });
+  // Completed orders are immutable snapshots. Background form saves must not
+  // replace their trigger products or release a post-purchase edit lock.
+  if (existing?.orderId) return { cart: existing, config, analysis, shippingMethod };
 
   const cart = await db.cartSession.upsert({
     where: { shop_browserSessionId: { shop, browserSessionId: payload.browserSessionId } },
@@ -302,6 +325,7 @@ export function buildShopifyOrderLineItems(lines: CartLine[]) {
     variantId: line.variantId,
     quantity: line.quantity,
     properties: line.properties,
+    ...(line.properties?.some(p => p.name === "Upsell") && typeof line.unitPrice === "number" ? { priceSet: { shopMoney: { amount: line.unitPrice.toFixed(2), currencyCode: "USD" } } } : {}),
     // orderCreate defaults this field to false, even when variantId belongs
     // to a physical product. PosCake needs a shippable order to create the
     // normal fulfillment/tracking workflow that triggers Pancake messages.
