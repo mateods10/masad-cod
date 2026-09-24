@@ -86,6 +86,9 @@
     const subtotal = () => Number(cart.items_subtotal_price || 0) / 100;
     const modal = document.createElement("div");
     modal.className = "ga-order-modal ga-cart-checkout-modal";
+    modal.style.setProperty("--ga-button-bg", formStyle.buttonBackground || "#087ec4");
+    modal.style.setProperty("--ga-button-text", formStyle.buttonTextColor || "#fff");
+    modal.style.setProperty("--ga-form-text", formStyle.formTextColor || "#0b2244");
     modal.hidden = true;
     modal.innerHTML = `
       <button class="ga-modal-backdrop" type="button" data-ga-cart-close aria-label="Cerrar formulario"></button>
@@ -101,7 +104,7 @@
           <div class="ga-field"><label>Referencia <span>*</span><input name="reference" placeholder="Ejem: Casa blanca junto al Tía" required></label></div>
           <div class="ga-field"><label>Correo electrónico <span>*</span><input name="email" type="email" autocomplete="email" placeholder="Ejem: usuario@gmail.com" required></label></div>
           <fieldset class="ga-options"><legend>Método de envío</legend><label><input type="radio" name="shippingMethod" value="FREE" checked><span><strong>Envío GRATIS</strong><small>Entrega normal</small></span><b>$0.00</b></label><label><input type="radio" name="shippingMethod" value="PRIORITY"><span><strong>Envío prioritario</strong><small>Preparación preferente</small></span><b>${money(priorityFee)}</b></label></fieldset>
-          <label class="ga-consent"><input type="checkbox" name="consentWhatsapp" required><span>Acepto recibir por WhatsApp información sobre esta compra</span></label>
+          <label class="ga-consent"><input type="checkbox" name="consentWhatsapp" required><span>🔒 <strong>Importante:</strong> Confirmaré mi pedido y acepto recibir por WhatsApp información relacionada con esta compra.</span></label>
           <div class="ga-total"><span>Total estimado</span><strong data-ga-cart-total>${money(subtotal())}</strong></div>
           <button class="ga-submit" type="submit">PAGA AL RECIBIR</button><p class="ga-status" data-ga-cart-status aria-live="polite"></p>
         </form>
@@ -159,7 +162,7 @@
         const result = await json(response, "Respuesta inválida de la tienda.");
         if (!response.ok || result.error) throw new Error(result.error || "No se pudo procesar el pedido.");
         if (result.orderTotal != null) total.textContent = money(result.orderTotal);
-        await fetch(`${storeRoot()}cart/clear.js`, { method: "POST", headers: { accept: "application/json" } });
+        await fetch(`${storeRoot()}cart/clear.js`, { method: "POST", headers: { accept: "application/json" } }).catch(() => {});
         status.textContent = `✓ ${result.orderName} confirmado. Te contactaremos pronto.`;
         localStorage.removeItem(sessionKey);
         localStorage.removeItem("masad_marketing_attribution");
@@ -172,6 +175,7 @@
         }
         submit.disabled = false;
         submit.textContent = "HACER OTRO PEDIDO";
+        await window.GAWhatsappConfirmation?.open(root.dataset.gaProxy, result, modal);
       } catch (error) {
         status.textContent = error instanceof Error ? error.message : "No se pudo procesar el pedido.";
         submit.disabled = false;

@@ -87,6 +87,8 @@
     }
   </style>
   {{ 'global-aura-upsells.css' | asset_url | stylesheet_tag }}
+  {{ 'global-aura-whatsapp.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'global-aura-whatsapp.js' | asset_url }}" defer></script>
   <script src="{{ 'global-aura-upsells.js' | asset_url }}" defer></script>
   <script src="{{ 'global-aura-customizer.js' | asset_url }}" defer></script>
   <script src="{{ 'global-aura-fraud-guard.js' | asset_url }}" defer></script>
@@ -240,7 +242,7 @@
         <label><input type="radio" name="paymentMethod" value="COD" checked required><span><strong>Pago contra entrega</strong><small>Paga cuando recibas</small></span></label>
       </fieldset>
 
-      <label class="ga-consent"><input type="checkbox" name="consentWhatsapp" required><span>Acepto recibir por WhatsApp información sobre esta compra</span></label>
+      <label class="ga-consent"><input type="checkbox" name="consentWhatsapp" required><span>🔒 <strong>Importante:</strong> Confirmaré mi pedido y acepto recibir por WhatsApp información relacionada con esta compra.</span></label>
 
       <div class="ga-total"><span>Total estimado</span><strong data-ga-total>{{ product.selected_or_first_available_variant.price | money }}</strong></div>
       <button class="ga-submit" type="submit">{{ block.settings.button_text }}</button>

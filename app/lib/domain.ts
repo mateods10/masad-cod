@@ -48,7 +48,10 @@ export function normalizeText(value: unknown): string {
 }
 
 export function normalizeEcuadorPhone(value: unknown): string | null {
-  const digits = String(value ?? "").replace(/\D/g, "");
+  const raw = String(value ?? "").trim();
+  if (!/^\+?[\d\s().-]+$/.test(raw)) return null;
+  const digits = raw.replace(/\D/g, "");
+  if (raw.startsWith("+") && !digits.startsWith("593")) return null;
   if (/^09\d{8}$/.test(digits)) return `+593${digits.slice(1)}`;
   if (/^5939\d{8}$/.test(digits)) return `+${digits}`;
   if (/^9\d{8}$/.test(digits)) return `+593${digits}`;

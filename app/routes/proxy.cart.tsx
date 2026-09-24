@@ -8,6 +8,7 @@ import { clientIpAddress, hashClientIp } from "../services/fraud.server";
 import { captureAttribution } from "../services/attribution.server";
 import { quoteUpsells } from "../services/upsells.server";
 import { acceptPostUpsell, postCart, postUpsellToken } from "../services/post-upsells.server";
+import { confirmationToken, getWhatsappConfirmation, whatsappSettings } from "../services/whatsapp-confirmation.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { session } = await authenticate.public.appProxy(request);
@@ -38,6 +39,9 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     if (!session || !admin) return Response.json({ error: "App no instalada" }, { status: 401 });
     const config = await ensureShopData(session.shop);
     const body = (await request.json()) as { intent?: string; cart?: CartPayload; browserSessionId?: string; attribution?: unknown; token?: string; campaignId?: string; offerId?: string; expectedPrice?: number };
+    if (body.intent === "whatsapp-confirmation") {
+      return Response.json(await getWhatsappConfirmation(session.shop, admin, config.integrationsJson, body.token || ""), { headers: { "Cache-Control": "no-store" } });
+    }
     if (body.intent === "quote-upsells") {
       const offers = await quoteUpsells(admin, config.salesToolsJson, body.cart?.lines || []);
       return Response.json({ offers }, { headers: { "Cache-Control": "no-store" } });
@@ -67,6 +71,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     }
 
     if (body.intent === "place-cod") {
+      if (body.cart.consentWhatsapp !== true) throw new Error("Acepta la confirmación y los mensajes relacionados con tu compra para continuar.");
       const result = await createCodOrder(
         session.shop,
         admin,
@@ -84,6 +89,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         orderName: result.orderName,
         duplicate: result.duplicate,
         orderTotal: Number(result.cart.orderTotal),
+        whatsappConfirmationToken: whatsappSettings(config.integrationsJson).enabled && result.cart.consentWhatsapp ? confirmationToken(session.shop, result.cart.id) : null,
         postUpsellToken: session.scope?.split(",").includes("write_order_edits") ? postUpsellToken(session.shop, result.cart.id) : null,
       });
     }

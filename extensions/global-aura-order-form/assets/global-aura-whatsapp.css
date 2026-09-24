@@ -1,0 +1,13 @@
+.ga-order-modal .ga-consent,.ga-cart-order-modal .ga-consent {
+  display:flex; align-items:center; gap:12px; padding:16px; margin:16px 0;
+  border:2px solid var(--ga-button-bg,#087ec4); border-radius:12px;
+  background:#eef7fc; background:color-mix(in srgb,var(--ga-button-bg,#087ec4) 12%,white);
+  color:var(--ga-form-text,#153f50); font-size:15px; line-height:1.6; cursor:pointer;
+}
+.ga-order-modal .ga-consent input,.ga-cart-order-modal .ga-consent input { flex:0 0 22px; width:22px; height:22px; margin:0; accent-color:var(--ga-button-bg,#087ec4); }
+.ga-whatsapp-confirmation { display:grid; gap:12px; padding:16px 0; }
+.ga-whatsapp-confirmation p { margin:0; line-height:1.5; }
+.ga-whatsapp-confirmation a,.ga-whatsapp-confirmation button { display:block; padding:16px; border-radius:12px; border:1px solid #cbd5e1; text-align:center; font:inherit; font-weight:700; cursor:pointer; text-decoration:none; }
+.ga-whatsapp-confirmation a { background:var(--ga-button-bg,#087ec4); color:var(--ga-button-text,#fff); }
+.ga-whatsapp-confirmation [hidden] { display:none; }
+form[data-ga-whatsapp-completed] .ga-submit { display:none; }

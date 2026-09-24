@@ -48,10 +48,10 @@
       const total = modal.querySelector("[data-ga-total]");
       if (total && result.orderTotal != null) total.textContent = money(result.orderTotal);
       const updated = await this.post(proxy, result);
-      if (updated == null) return;
-      if (total) total.textContent = money(updated);
+      if (total && updated != null) total.textContent = money(updated);
       const status = modal.querySelector("[data-ga-status]");
-      if (status) { status.textContent = `✓ ${result.orderName} actualizado. Total a pagar al recibir: ${money(updated)}.`; status.dataset.state = "success"; }
+      if (status && updated != null) { status.textContent = `✓ ${result.orderName} actualizado. Total a pagar al recibir: ${money(updated)}.`; status.dataset.state = "success"; }
+      return await window.GAWhatsappConfirmation?.open(proxy, result, modal);
     },
     async pre(proxy, cart) {
       let offers;

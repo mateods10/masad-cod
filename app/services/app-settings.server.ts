@@ -39,6 +39,9 @@ export type SalesToolsSettings = {
 };
 
 export type IntegrationSettings = {
+  whatsappConfirmationEnabled: boolean;
+  whatsappPhone: string;
+  whatsappStoreName: string;
   googleSheetsEnabled: boolean;
   googleSheetsWebhook: string;
   googlePlacesEnabled: boolean;
@@ -86,6 +89,9 @@ export const DEFAULT_SALES_TOOLS: SalesToolsSettings = {
 };
 
 export const DEFAULT_INTEGRATIONS: IntegrationSettings = {
+  whatsappConfirmationEnabled: false,
+  whatsappPhone: "",
+  whatsappStoreName: "",
   googleSheetsEnabled: false,
   googleSheetsWebhook: "",
   googlePlacesEnabled: false,
