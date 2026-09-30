@@ -1,6 +1,6 @@
 import type { CartSession } from "@prisma/client";
 import { describe, expect, it, vi } from "vitest";
-import { buildShopifyOrderLineItems, buildShopifyOrderNote, buildShopifyShippingAddress, createAbandonedDraftOrder } from "./cart.server";
+import { buildShopifyOrderLineItems, buildShopifyOrderNote, buildShopifyShippingAddress, createAbandonedDraftOrder, resolveLines } from "./cart.server";
 
 describe("Shopify and PosCake address", () => {
   it("sends the city and both province representations", () => {
@@ -52,6 +52,7 @@ describe("Shopify and PosCake shipping workflow", () => {
       quantity: 1,
       title: "Tank Top",
       variantTitle: "2 Tank Top / Blanco / L/XL",
+      offerTitle: "2 Tank Top",
       properties: [
         { name: "Unidad 2", value: "Negro / M" },
         { name: "Opción", value: "2 Tank Top" },
@@ -60,7 +61,7 @@ describe("Shopify and PosCake shipping workflow", () => {
     }])).toEqual([{
       variantId: "gid://shopify/ProductVariant/123",
       quantity: 1,
-      title: "Tank Top — #1: Blanco / L/XL + #2: Negro / M",
+      title: "Tank Top — 2 Tank Top — #1: Blanco / L/XL + #2: Negro / M",
       variantTitle: "2 Tank Top",
       properties: [
         { name: "Unidad 2", value: "Negro / M" },
@@ -69,6 +70,45 @@ describe("Shopify and PosCake shipping workflow", () => {
       ],
       requiresShipping: true,
     }]);
+  });
+
+  it.each([1, 2, 3])("retains the selected %i-unit offer for a single-option product", async (count) => {
+    const graphql = vi.fn(async () => Response.json({ data: { nodes: [{
+      id: "gid://shopify/ProductVariant/123", title: `${count} Shaver 3 en 1`,
+      selectedOptions: [{ name: "Oferta", value: `${count} Shaver 3 en 1` }],
+      price: "47.99", inventoryQuantity: 10, inventoryPolicy: "DENY",
+      inventoryItem: { tracked: true }, product: { title: "Shaver 3 en 1" },
+    }] } }));
+    const resolved = await resolveLines({ graphql }, [{ variantId: 123, quantity: 1 }]);
+    expect(buildShopifyOrderLineItems(resolved)[0]).toMatchObject({
+      title: `Shaver 3 en 1 — ${count} Shaver 3 en 1`,
+      variantTitle: `${count} Shaver 3 en 1`,
+      variantId: "gid://shopify/ProductVariant/123", quantity: 1,
+    });
+    expect(resolved[0].unitPrice).toBe(47.99);
+  });
+
+  it("uses Shopify's pack name and retains all suboptions without trusting the posted offer label", async () => {
+    const graphql = vi.fn(async () => Response.json({ data: { nodes: [{
+      id: "gid://shopify/ProductVariant/123", title: "2 Tank Top / Blanco / L/XL",
+      selectedOptions: [{ name: "Oferta", value: "2 Tank Top" }, { name: "Color", value: "Blanco" }, { name: "Talla", value: "L/XL" }],
+      price: "35.99", inventoryQuantity: 10, inventoryPolicy: "DENY",
+      inventoryItem: { tracked: true }, product: { title: "Tank Top" },
+    }] } }));
+    const resolved = await resolveLines({ graphql }, [{ variantId: 123, quantity: 1, properties: [
+      { name: "Opción", value: "Oferta incorrecta" },
+      { name: "Unidad 1", value: "Blanco / L/XL" },
+      { name: "Unidad 2", value: "Negro / S/M" },
+    ] }]);
+    expect(buildShopifyOrderLineItems(resolved)[0]).toMatchObject({
+      title: "Tank Top — 2 Tank Top — #1: Blanco / L/XL + #2: Negro / S/M",
+      variantTitle: "2 Tank Top", quantity: 1, variantId: "gid://shopify/ProductVariant/123",
+    });
+  });
+
+  it("does not print Shopify's Default Title for a product without options", () => {
+    expect(buildShopifyOrderLineItems([{ variantId: "gid://shopify/ProductVariant/1", quantity: 1,
+      title: "Crema", variantTitle: "Default Title", offerTitle: "Default Title" }])[0]).not.toHaveProperty("title");
   });
 
   it("marks every completed COD line as requiring physical shipping", () => {

@@ -102,7 +102,7 @@ function variantGid(value: string | number) {
   return `gid://shopify/ProductVariant/${raw}`;
 }
 
-async function resolveLines(admin: AdminClient, lines: CartPayload["lines"]): Promise<ResolvedLine[]> {
+export async function resolveLines(admin: AdminClient, lines: CartPayload["lines"]): Promise<ResolvedLine[]> {
   if (!Array.isArray(lines) || lines.length < 1 || lines.length > 20) throw new Error("El carrito no contiene productos válidos");
   const normalized = lines.map((line) => ({
     variantId: variantGid(line.variantId),
@@ -120,6 +120,7 @@ async function resolveLines(admin: AdminClient, lines: CartPayload["lines"]): Pr
           ... on ProductVariant {
             id
             title
+            selectedOptions { name value }
             price
             inventoryQuantity
             inventoryPolicy
@@ -131,7 +132,7 @@ async function resolveLines(admin: AdminClient, lines: CartPayload["lines"]): Pr
     { variables: { ids: normalized.map((line) => line.variantId) } },
   );
   const body = (await response.json()) as {
-    data?: { nodes?: Array<null | { id: string; title: string; price: string; inventoryQuantity: number | null; inventoryPolicy: string; inventoryItem: { tracked: boolean }; product: { title: string } }> };
+    data?: { nodes?: Array<null | { id: string; title: string; selectedOptions?: Array<{ name: string; value: string }>; price: string; inventoryQuantity: number | null; inventoryPolicy: string; inventoryItem: { tracked: boolean }; product: { title: string } }> };
     errors?: Array<{ message: string }>;
   };
   if (body.errors?.length) throw new Error(body.errors.map((error) => error.message).join("; "));
@@ -154,6 +155,11 @@ async function resolveLines(admin: AdminClient, lines: CartPayload["lines"]): Pr
       productTitle: variant.product.title,
       title: variant.product.title,
       variantTitle: variant.title,
+      // The storefront groups multi-option products by their first option.
+      // Read that offer from Shopify, not a client-supplied display label.
+      offerTitle: line.properties.some(p => /^Unidad [1-9]\d*$/.test(p.name))
+        ? variant.selectedOptions?.[0]?.value || variant.title
+        : variant.title,
       price: Number(variant.price),
       unitPrice: Number(variant.price),
       properties: line.properties,
@@ -326,15 +332,16 @@ export function buildShopifyOrderLineItems(lines: CartLine[]) {
       .filter((property) => /^Unidad [1-9]\d*$/.test(property.name) && property.value.trim())
       .sort((a, b) => Number(a.name.slice(7)) - Number(b.name.slice(7)))
       .map((property) => `${property.name.replace("Unidad ", "#")}: ${property.value.trim()}`);
-    const selectedOption = line.properties?.find((property) => property.name === "Opción")?.value.trim();
-    const selectionSummary = unitSelections.join(" + ");
+    const selectedOption = (line.offerTitle || line.variantTitle || "").trim();
+    const offer = selectedOption === "Default Title" ? "" : selectedOption;
+    const selectionSummary = [offer, unitSelections.join(" + ")].filter(Boolean).join(" — ");
     return {
       variantId: line.variantId,
       quantity: line.quantity,
       properties: line.properties,
-      ...(unitSelections.length > 0 ? {
+      ...(selectionSummary && line.title ? {
         title: `${line.title || "Producto"} — ${selectionSummary}`,
-        variantTitle: selectedOption || line.variantTitle,
+        ...(offer ? { variantTitle: offer } : {}),
       } : {}),
       ...(line.properties?.some(p => p.name === "Upsell") && typeof line.unitPrice === "number" ? { priceSet: { shopMoney: { amount: line.unitPrice.toFixed(2), currencyCode: "USD" } } } : {}),
       // orderCreate defaults this field to false, even when variantId belongs

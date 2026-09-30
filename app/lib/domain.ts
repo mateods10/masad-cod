@@ -3,6 +3,7 @@ export type CartLine = {
   quantity: number;
   title?: string;
   variantTitle?: string;
+  offerTitle?: string;
   unitPrice?: number;
   properties?: Array<{ name: string; value: string }>;
 };
