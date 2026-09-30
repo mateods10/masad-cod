@@ -321,16 +321,28 @@ export function buildShopifyShippingAddress(input: {
 }
 
 export function buildShopifyOrderLineItems(lines: CartLine[]) {
-  return lines.map((line) => ({
-    variantId: line.variantId,
-    quantity: line.quantity,
-    properties: line.properties,
-    ...(line.properties?.some(p => p.name === "Upsell") && typeof line.unitPrice === "number" ? { priceSet: { shopMoney: { amount: line.unitPrice.toFixed(2), currencyCode: "USD" } } } : {}),
-    // orderCreate defaults this field to false, even when variantId belongs
-    // to a physical product. PosCake needs a shippable order to create the
-    // normal fulfillment/tracking workflow that triggers Pancake messages.
-    requiresShipping: true,
-  }));
+  return lines.map((line) => {
+    const unitSelections = (line.properties ?? [])
+      .filter((property) => /^Unidad [1-9]\d*$/.test(property.name) && property.value.trim())
+      .sort((a, b) => Number(a.name.slice(7)) - Number(b.name.slice(7)))
+      .map((property) => `${property.name.replace("Unidad ", "#")}: ${property.value.trim()}`);
+    const selectedOption = line.properties?.find((property) => property.name === "Opción")?.value.trim();
+    const selectionSummary = unitSelections.join(" + ");
+    return {
+      variantId: line.variantId,
+      quantity: line.quantity,
+      properties: line.properties,
+      ...(unitSelections.length > 0 ? {
+        title: `${line.title || "Producto"} — ${selectionSummary}`,
+        variantTitle: selectedOption || line.variantTitle,
+      } : {}),
+      ...(line.properties?.some(p => p.name === "Upsell") && typeof line.unitPrice === "number" ? { priceSet: { shopMoney: { amount: line.unitPrice.toFixed(2), currencyCode: "USD" } } } : {}),
+      // orderCreate defaults this field to false, even when variantId belongs
+      // to a physical product. PosCake needs a shippable order to create the
+      // normal fulfillment/tracking workflow that triggers Pancake messages.
+      requiresShipping: true,
+    };
+  });
 }
 
 function posCakeFullProvinceForAddress() {

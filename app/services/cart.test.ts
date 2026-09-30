@@ -46,6 +46,31 @@ describe("Shopify and PosCake address", () => {
 });
 
 describe("Shopify and PosCake shipping workflow", () => {
+  it("puts every selected pack unit into the visible line title for the shipping guide", () => {
+    expect(buildShopifyOrderLineItems([{
+      variantId: "gid://shopify/ProductVariant/123",
+      quantity: 1,
+      title: "Tank Top",
+      variantTitle: "2 Tank Top / Blanco / L/XL",
+      properties: [
+        { name: "Unidad 2", value: "Negro / M" },
+        { name: "Opción", value: "2 Tank Top" },
+        { name: "Unidad 1", value: "Blanco / L/XL" },
+      ],
+    }])).toEqual([{
+      variantId: "gid://shopify/ProductVariant/123",
+      quantity: 1,
+      title: "Tank Top — #1: Blanco / L/XL + #2: Negro / M",
+      variantTitle: "2 Tank Top",
+      properties: [
+        { name: "Unidad 2", value: "Negro / M" },
+        { name: "Opción", value: "2 Tank Top" },
+        { name: "Unidad 1", value: "Blanco / L/XL" },
+      ],
+      requiresShipping: true,
+    }]);
+  });
+
   it("marks every completed COD line as requiring physical shipping", () => {
     expect(buildShopifyOrderLineItems([
       {
